@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Solis Tool Kit</string>
   </property>
+  <property name="dockNestingEnabled">
+   <bool>true</bool>
+  </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks|QMainWindow::VerticalTabs</set>
   </property>
@@ -497,7 +500,7 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QDockWidget" name="ToolShelfDock">
+  <widget class="QDockWidget" name="dock_widget1">
    <property name="minimumSize">
     <size>
      <width>153</width>
@@ -517,7 +520,7 @@
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QToolBox" name="toolBox">
        <property name="contextMenuPolicy">
@@ -550,8 +553,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>135</width>
-          <height>159</height>
+          <width>98</width>
+          <height>28</height>
          </rect>
         </property>
         <attribute name="label">
@@ -563,8 +566,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>135</width>
-          <height>159</height>
+          <width>98</width>
+          <height>28</height>
          </rect>
         </property>
         <attribute name="label">
@@ -576,8 +579,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>135</width>
-          <height>159</height>
+          <width>98</width>
+          <height>28</height>
          </rect>
         </property>
         <attribute name="label">
@@ -589,8 +592,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>135</width>
-          <height>159</height>
+          <width>98</width>
+          <height>28</height>
          </rect>
         </property>
         <attribute name="label">
@@ -601,6 +604,63 @@
      </item>
     </layout>
    </widget>
+  </widget>
+  <widget class="QDockWidget" name="dock_widget2">
+   <property name="windowTitle">
+    <string>Asset Browser</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>Materials</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QListView" name="listView"/>
+         </item>
+         <item row="1" column="0">
+          <layout class="QFormLayout" name="formLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Set Directory:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboBox"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <attribute name="title">
+         <string>Models</string>
+        </attribute>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dock_widget3">
+   <property name="windowTitle">
+    <string>Properties</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3"/>
   </widget>
   <action name="actionNew_Map">
    <property name="text">
@@ -687,16 +747,6 @@
     <string>Reload Shaders</string>
    </property>
   </action>
-  <action name="actionTest">
-   <property name="text">
-    <string>test</string>
-   </property>
-  </action>
-  <action name="actionTest_2">
-   <property name="text">
-    <string>test</string>
-   </property>
-  </action>
   <action name="actionReload_Defs">
    <property name="text">
     <string>Reload Defs</string>
@@ -720,16 +770,6 @@
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
-   </property>
-  </action>
-  <action name="actionTestagain">
-   <property name="text">
-    <string>testagain</string>
-   </property>
-  </action>
-  <action name="actionRemovemetoo">
-   <property name="text">
-    <string>removemetoo</string>
    </property>
   </action>
   <action name="actionReload_selected_Models">
@@ -933,16 +973,25 @@
    </property>
   </action>
   <action name="actionPatch_Inspector">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Patch Inspector</string>
    </property>
   </action>
   <action name="actionTexture_Tool">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Texture Tool</string>
    </property>
   </action>
   <action name="actionScene_Browser">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Scene Browser</string>
    </property>
@@ -958,16 +1007,25 @@
    </property>
   </action>
   <action name="actionFloating">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Floating </string>
    </property>
   </action>
   <action name="actionSplit_Pane_4_Up">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Split Pane (4 Up)</string>
    </property>
   </action>
   <action name="actionDefault">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Default</string>
    </property>
@@ -983,6 +1041,9 @@
    </property>
   </action>
   <action name="actionMaximized">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Maximized</string>
    </property>
@@ -1163,21 +1224,33 @@
    </property>
   </action>
   <action name="actionEdges">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Edges</string>
    </property>
   </action>
   <action name="actionVertices">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Vertices</string>
    </property>
   </action>
   <action name="actionFaces">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Faces</string>
    </property>
   </action>
   <action name="actionEntities">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Entities</string>
    </property>
@@ -1233,6 +1306,9 @@
    </property>
   </action>
   <action name="actionSnap_selected_to_grid">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Snap selected to grid</string>
    </property>
@@ -1243,61 +1319,97 @@
    </property>
   </action>
   <action name="actionGrid_0_25">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 0.25</string>
    </property>
   </action>
   <action name="actionGrid_0_5">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 0.5</string>
    </property>
   </action>
   <action name="actionGrid_1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 1</string>
    </property>
   </action>
   <action name="actionGrid_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 2</string>
    </property>
   </action>
   <action name="actionGrid_4">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 4</string>
    </property>
   </action>
   <action name="actionGrid_8">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 8</string>
    </property>
   </action>
   <action name="actionGrid_9">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 8</string>
    </property>
   </action>
   <action name="actionGrid_16">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 16</string>
    </property>
   </action>
   <action name="actionGrid_32">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 32</string>
    </property>
   </action>
   <action name="actionGrid_64">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 64</string>
    </property>
   </action>
   <action name="actionGrid_128">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 128</string>
    </property>
   </action>
   <action name="actionGrid_256">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Grid 256</string>
    </property>

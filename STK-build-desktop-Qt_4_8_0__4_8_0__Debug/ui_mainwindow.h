@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed Dec 7 03:36:22 2011
+** Created: Sat Dec 10 01:16:30 2011
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,15 +14,22 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QComboBox>
 #include <QtGui/QDockWidget>
+#include <QtGui/QFormLayout>
+#include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
+#include <QtGui/QListView>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QStatusBar>
+#include <QtGui/QTabWidget>
 #include <QtGui/QToolBar>
 #include <QtGui/QToolBox>
+#include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -47,15 +54,11 @@ public:
     QAction *actionReload_Scripts;
     QAction *actionReload_GUIs;
     QAction *actionReload_Shaders;
-    QAction *actionTest;
-    QAction *actionTest_2;
     QAction *actionReload_Defs;
     QAction *actionReload_Particles;
     QAction *actionSelect_Game;
     QAction *actionPoint_File;
     QAction *actionExit;
-    QAction *actionTestagain;
-    QAction *actionRemovemetoo;
     QAction *actionReload_selected_Models;
     QAction *actionReload_all_Models;
     QAction *actionReload_Skins_2;
@@ -294,21 +297,35 @@ public:
     QMenu *menuHelp;
     QStatusBar *statusBar;
     QToolBar *toolBar;
-    QDockWidget *ToolShelfDock;
+    QDockWidget *dock_widget1;
     QWidget *dockWidgetContents;
-    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout;
     QToolBox *toolBox;
     QWidget *page;
     QWidget *page_3;
     QWidget *page_4;
     QWidget *page_5;
     QWidget *page_2;
+    QDockWidget *dock_widget2;
+    QWidget *dockWidgetContents_2;
+    QHBoxLayout *horizontalLayout;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QGridLayout *gridLayout;
+    QListView *listView;
+    QFormLayout *formLayout;
+    QLabel *label;
+    QComboBox *comboBox;
+    QWidget *tab_2;
+    QDockWidget *dock_widget3;
+    QWidget *dockWidgetContents_3;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(707, 416);
+        MainWindow->setDockNestingEnabled(true);
         MainWindow->setDockOptions(QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks|QMainWindow::VerticalTabs);
         actionNew_Map = new QAction(MainWindow);
         actionNew_Map->setObjectName(QString::fromUtf8("actionNew_Map"));
@@ -344,10 +361,6 @@ public:
         actionReload_GUIs->setObjectName(QString::fromUtf8("actionReload_GUIs"));
         actionReload_Shaders = new QAction(MainWindow);
         actionReload_Shaders->setObjectName(QString::fromUtf8("actionReload_Shaders"));
-        actionTest = new QAction(MainWindow);
-        actionTest->setObjectName(QString::fromUtf8("actionTest"));
-        actionTest_2 = new QAction(MainWindow);
-        actionTest_2->setObjectName(QString::fromUtf8("actionTest_2"));
         actionReload_Defs = new QAction(MainWindow);
         actionReload_Defs->setObjectName(QString::fromUtf8("actionReload_Defs"));
         actionReload_Particles = new QAction(MainWindow);
@@ -358,10 +371,6 @@ public:
         actionPoint_File->setObjectName(QString::fromUtf8("actionPoint_File"));
         actionExit = new QAction(MainWindow);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
-        actionTestagain = new QAction(MainWindow);
-        actionTestagain->setObjectName(QString::fromUtf8("actionTestagain"));
-        actionRemovemetoo = new QAction(MainWindow);
-        actionRemovemetoo->setObjectName(QString::fromUtf8("actionRemovemetoo"));
         actionReload_selected_Models = new QAction(MainWindow);
         actionReload_selected_Models->setObjectName(QString::fromUtf8("actionReload_selected_Models"));
         actionReload_all_Models = new QAction(MainWindow);
@@ -444,26 +453,33 @@ public:
         actionSurface_Inspector->setObjectName(QString::fromUtf8("actionSurface_Inspector"));
         actionPatch_Inspector = new QAction(MainWindow);
         actionPatch_Inspector->setObjectName(QString::fromUtf8("actionPatch_Inspector"));
+        actionPatch_Inspector->setCheckable(true);
         actionTexture_Tool = new QAction(MainWindow);
         actionTexture_Tool->setObjectName(QString::fromUtf8("actionTexture_Tool"));
+        actionTexture_Tool->setCheckable(true);
         actionScene_Browser = new QAction(MainWindow);
         actionScene_Browser->setObjectName(QString::fromUtf8("actionScene_Browser"));
+        actionScene_Browser->setCheckable(true);
         actionColours = new QAction(MainWindow);
         actionColours->setObjectName(QString::fromUtf8("actionColours"));
         actionBackground_Image = new QAction(MainWindow);
         actionBackground_Image->setObjectName(QString::fromUtf8("actionBackground_Image"));
         actionFloating = new QAction(MainWindow);
         actionFloating->setObjectName(QString::fromUtf8("actionFloating"));
+        actionFloating->setCheckable(true);
         actionSplit_Pane_4_Up = new QAction(MainWindow);
         actionSplit_Pane_4_Up->setObjectName(QString::fromUtf8("actionSplit_Pane_4_Up"));
+        actionSplit_Pane_4_Up->setCheckable(true);
         actionDefault = new QAction(MainWindow);
         actionDefault->setObjectName(QString::fromUtf8("actionDefault"));
+        actionDefault->setCheckable(true);
         actionSave_Custom = new QAction(MainWindow);
         actionSave_Custom->setObjectName(QString::fromUtf8("actionSave_Custom"));
         actionLoad_Custom = new QAction(MainWindow);
         actionLoad_Custom->setObjectName(QString::fromUtf8("actionLoad_Custom"));
         actionMaximized = new QAction(MainWindow);
         actionMaximized->setObjectName(QString::fromUtf8("actionMaximized"));
+        actionMaximized->setCheckable(true);
         actionTop_Left = new QAction(MainWindow);
         actionTop_Left->setObjectName(QString::fromUtf8("actionTop_Left"));
         actionTop_Right = new QAction(MainWindow);
@@ -536,12 +552,16 @@ public:
         actionRotate_and_scale->setObjectName(QString::fromUtf8("actionRotate_and_scale"));
         actionEdges = new QAction(MainWindow);
         actionEdges->setObjectName(QString::fromUtf8("actionEdges"));
+        actionEdges->setCheckable(true);
         actionVertices = new QAction(MainWindow);
         actionVertices->setObjectName(QString::fromUtf8("actionVertices"));
+        actionVertices->setCheckable(true);
         actionFaces = new QAction(MainWindow);
         actionFaces->setObjectName(QString::fromUtf8("actionFaces"));
+        actionFaces->setCheckable(true);
         actionEntities = new QAction(MainWindow);
         actionEntities->setObjectName(QString::fromUtf8("actionEntities"));
+        actionEntities->setCheckable(true);
         actionNudge_Left = new QAction(MainWindow);
         actionNudge_Left->setObjectName(QString::fromUtf8("actionNudge_Left"));
         actionNudge_Right = new QAction(MainWindow);
@@ -564,32 +584,45 @@ public:
         actionMirror_Z->setObjectName(QString::fromUtf8("actionMirror_Z"));
         actionSnap_selected_to_grid = new QAction(MainWindow);
         actionSnap_selected_to_grid->setObjectName(QString::fromUtf8("actionSnap_selected_to_grid"));
+        actionSnap_selected_to_grid->setCheckable(false);
         actionGrid_0_125 = new QAction(MainWindow);
         actionGrid_0_125->setObjectName(QString::fromUtf8("actionGrid_0_125"));
         actionGrid_0_25 = new QAction(MainWindow);
         actionGrid_0_25->setObjectName(QString::fromUtf8("actionGrid_0_25"));
+        actionGrid_0_25->setCheckable(true);
         actionGrid_0_5 = new QAction(MainWindow);
         actionGrid_0_5->setObjectName(QString::fromUtf8("actionGrid_0_5"));
+        actionGrid_0_5->setCheckable(true);
         actionGrid_1 = new QAction(MainWindow);
         actionGrid_1->setObjectName(QString::fromUtf8("actionGrid_1"));
+        actionGrid_1->setCheckable(true);
         actionGrid_2 = new QAction(MainWindow);
         actionGrid_2->setObjectName(QString::fromUtf8("actionGrid_2"));
+        actionGrid_2->setCheckable(true);
         actionGrid_4 = new QAction(MainWindow);
         actionGrid_4->setObjectName(QString::fromUtf8("actionGrid_4"));
+        actionGrid_4->setCheckable(true);
         actionGrid_8 = new QAction(MainWindow);
         actionGrid_8->setObjectName(QString::fromUtf8("actionGrid_8"));
+        actionGrid_8->setCheckable(true);
         actionGrid_9 = new QAction(MainWindow);
         actionGrid_9->setObjectName(QString::fromUtf8("actionGrid_9"));
+        actionGrid_9->setCheckable(true);
         actionGrid_16 = new QAction(MainWindow);
         actionGrid_16->setObjectName(QString::fromUtf8("actionGrid_16"));
+        actionGrid_16->setCheckable(true);
         actionGrid_32 = new QAction(MainWindow);
         actionGrid_32->setObjectName(QString::fromUtf8("actionGrid_32"));
+        actionGrid_32->setCheckable(true);
         actionGrid_64 = new QAction(MainWindow);
         actionGrid_64->setObjectName(QString::fromUtf8("actionGrid_64"));
+        actionGrid_64->setCheckable(true);
         actionGrid_128 = new QAction(MainWindow);
         actionGrid_128->setObjectName(QString::fromUtf8("actionGrid_128"));
+        actionGrid_128->setCheckable(true);
         actionGrid_256 = new QAction(MainWindow);
         actionGrid_256->setObjectName(QString::fromUtf8("actionGrid_256"));
+        actionGrid_256->setCheckable(true);
         actionAll_Entities = new QAction(MainWindow);
         actionAll_Entities->setObjectName(QString::fromUtf8("actionAll_Entities"));
         actionBrushes = new QAction(MainWindow);
@@ -845,17 +878,17 @@ public:
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
-        ToolShelfDock = new QDockWidget(MainWindow);
-        ToolShelfDock->setObjectName(QString::fromUtf8("ToolShelfDock"));
-        ToolShelfDock->setMinimumSize(QSize(153, 304));
-        ToolShelfDock->setAutoFillBackground(true);
-        ToolShelfDock->setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea);
+        dock_widget1 = new QDockWidget(MainWindow);
+        dock_widget1->setObjectName(QString::fromUtf8("dock_widget1"));
+        dock_widget1->setMinimumSize(QSize(153, 304));
+        dock_widget1->setAutoFillBackground(true);
+        dock_widget1->setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea);
         dockWidgetContents = new QWidget();
         dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
-        horizontalLayout = new QHBoxLayout(dockWidgetContents);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        verticalLayout = new QVBoxLayout(dockWidgetContents);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         toolBox = new QToolBox(dockWidgetContents);
         toolBox->setObjectName(QString::fromUtf8("toolBox"));
         toolBox->setContextMenuPolicy(Qt::DefaultContextMenu);
@@ -867,25 +900,77 @@ public:
         toolBox->addItem(page, QString::fromUtf8("Page 1"));
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
-        page_3->setGeometry(QRect(0, 0, 135, 159));
+        page_3->setGeometry(QRect(0, 0, 98, 28));
         toolBox->addItem(page_3, QString::fromUtf8("Page"));
         page_4 = new QWidget();
         page_4->setObjectName(QString::fromUtf8("page_4"));
-        page_4->setGeometry(QRect(0, 0, 135, 159));
+        page_4->setGeometry(QRect(0, 0, 98, 28));
         toolBox->addItem(page_4, QString::fromUtf8("Page"));
         page_5 = new QWidget();
         page_5->setObjectName(QString::fromUtf8("page_5"));
-        page_5->setGeometry(QRect(0, 0, 135, 159));
+        page_5->setGeometry(QRect(0, 0, 98, 28));
         toolBox->addItem(page_5, QString::fromUtf8("Page"));
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
-        page_2->setGeometry(QRect(0, 0, 135, 159));
+        page_2->setGeometry(QRect(0, 0, 98, 28));
         toolBox->addItem(page_2, QString::fromUtf8("Page 2"));
 
-        horizontalLayout->addWidget(toolBox);
+        verticalLayout->addWidget(toolBox);
 
-        ToolShelfDock->setWidget(dockWidgetContents);
-        MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), ToolShelfDock);
+        dock_widget1->setWidget(dockWidgetContents);
+        MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dock_widget1);
+        dock_widget2 = new QDockWidget(MainWindow);
+        dock_widget2->setObjectName(QString::fromUtf8("dock_widget2"));
+        dockWidgetContents_2 = new QWidget();
+        dockWidgetContents_2->setObjectName(QString::fromUtf8("dockWidgetContents_2"));
+        horizontalLayout = new QHBoxLayout(dockWidgetContents_2);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        tabWidget = new QTabWidget(dockWidgetContents_2);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        gridLayout = new QGridLayout(tab);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        listView = new QListView(tab);
+        listView->setObjectName(QString::fromUtf8("listView"));
+
+        gridLayout->addWidget(listView, 0, 0, 1, 1);
+
+        formLayout = new QFormLayout();
+        formLayout->setSpacing(6);
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        label = new QLabel(tab);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        formLayout->setWidget(0, QFormLayout::LabelRole, label);
+
+        comboBox = new QComboBox(tab);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, comboBox);
+
+
+        gridLayout->addLayout(formLayout, 1, 0, 1, 1);
+
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        tabWidget->addTab(tab_2, QString());
+
+        horizontalLayout->addWidget(tabWidget);
+
+        dock_widget2->setWidget(dockWidgetContents_2);
+        MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dock_widget2);
+        dock_widget3 = new QDockWidget(MainWindow);
+        dock_widget3->setObjectName(QString::fromUtf8("dock_widget3"));
+        dockWidgetContents_3 = new QWidget();
+        dockWidgetContents_3->setObjectName(QString::fromUtf8("dockWidgetContents_3"));
+        dock_widget3->setWidget(dockWidgetContents_3);
+        MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dock_widget3);
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuEdit->menuAction());
@@ -1177,6 +1262,7 @@ public:
         retranslateUi(MainWindow);
 
         toolBox->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1202,15 +1288,11 @@ public:
         actionReload_Scripts->setText(QApplication::translate("MainWindow", "Reload Scripts", 0, QApplication::UnicodeUTF8));
         actionReload_GUIs->setText(QApplication::translate("MainWindow", "Reload readable GUIs", 0, QApplication::UnicodeUTF8));
         actionReload_Shaders->setText(QApplication::translate("MainWindow", "Reload Shaders", 0, QApplication::UnicodeUTF8));
-        actionTest->setText(QApplication::translate("MainWindow", "test", 0, QApplication::UnicodeUTF8));
-        actionTest_2->setText(QApplication::translate("MainWindow", "test", 0, QApplication::UnicodeUTF8));
         actionReload_Defs->setText(QApplication::translate("MainWindow", "Reload Defs", 0, QApplication::UnicodeUTF8));
         actionReload_Particles->setText(QApplication::translate("MainWindow", "Reload Particles", 0, QApplication::UnicodeUTF8));
         actionSelect_Game->setText(QApplication::translate("MainWindow", "Select Game", 0, QApplication::UnicodeUTF8));
         actionPoint_File->setText(QApplication::translate("MainWindow", "Load Point File", 0, QApplication::UnicodeUTF8));
         actionExit->setText(QApplication::translate("MainWindow", "Exit", 0, QApplication::UnicodeUTF8));
-        actionTestagain->setText(QApplication::translate("MainWindow", "testagain", 0, QApplication::UnicodeUTF8));
-        actionRemovemetoo->setText(QApplication::translate("MainWindow", "removemetoo", 0, QApplication::UnicodeUTF8));
         actionReload_selected_Models->setText(QApplication::translate("MainWindow", "Reload selected Models", 0, QApplication::UnicodeUTF8));
         actionReload_all_Models->setText(QApplication::translate("MainWindow", "Reload all Models", 0, QApplication::UnicodeUTF8));
         actionReload_Skins_2->setText(QApplication::translate("MainWindow", "Reload Skins", 0, QApplication::UnicodeUTF8));
@@ -1446,12 +1528,17 @@ public:
         menuScripts->setTitle(QApplication::translate("MainWindow", "Scripts", 0, QApplication::UnicodeUTF8));
         menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0, QApplication::UnicodeUTF8));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0, QApplication::UnicodeUTF8));
-        ToolShelfDock->setWindowTitle(QApplication::translate("MainWindow", "Tool Shelf", 0, QApplication::UnicodeUTF8));
+        dock_widget1->setWindowTitle(QApplication::translate("MainWindow", "Tool Shelf", 0, QApplication::UnicodeUTF8));
         toolBox->setItemText(toolBox->indexOf(page), QApplication::translate("MainWindow", "Page 1", 0, QApplication::UnicodeUTF8));
         toolBox->setItemText(toolBox->indexOf(page_3), QApplication::translate("MainWindow", "Page", 0, QApplication::UnicodeUTF8));
         toolBox->setItemText(toolBox->indexOf(page_4), QApplication::translate("MainWindow", "Page", 0, QApplication::UnicodeUTF8));
         toolBox->setItemText(toolBox->indexOf(page_5), QApplication::translate("MainWindow", "Page", 0, QApplication::UnicodeUTF8));
         toolBox->setItemText(toolBox->indexOf(page_2), QApplication::translate("MainWindow", "Page 2", 0, QApplication::UnicodeUTF8));
+        dock_widget2->setWindowTitle(QApplication::translate("MainWindow", "Asset Browser", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("MainWindow", "Set Directory:", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Materials", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Models", 0, QApplication::UnicodeUTF8));
+        dock_widget3->setWindowTitle(QApplication::translate("MainWindow", "Properties", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
