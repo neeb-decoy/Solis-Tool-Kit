@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sat Dec 10 01:16:30 2011
+** Created: Mon Jan 2 03:22:54 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,17 +14,15 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QComboBox>
 #include <QtGui/QDockWidget>
-#include <QtGui/QFormLayout>
+#include <QtGui/QFrame>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QListView>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
+#include <QtGui/QStackedWidget>
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
 #include <QtGui/QToolBar>
@@ -261,6 +259,10 @@ public:
     QAction *actionRemove_Curve_Controle_Points;
     QAction *actionAbout;
     QWidget *centralWidget;
+    QHBoxLayout *horizontalLayout_2;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QWidget *page_2;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuReload_2;
@@ -296,35 +298,71 @@ public:
     QMenu *menuScripts;
     QMenu *menuHelp;
     QStatusBar *statusBar;
-    QToolBar *toolBar;
-    QDockWidget *dock_widget1;
-    QWidget *dockWidgetContents;
-    QVBoxLayout *verticalLayout;
-    QToolBox *toolBox;
-    QWidget *page;
-    QWidget *page_3;
-    QWidget *page_4;
-    QWidget *page_5;
-    QWidget *page_2;
     QDockWidget *dock_widget2;
     QWidget *dockWidgetContents_2;
-    QHBoxLayout *horizontalLayout;
+    QHBoxLayout *horizontalLayout_5;
+    QFrame *frame_3;
+    QVBoxLayout *verticalLayout;
     QTabWidget *tabWidget;
-    QWidget *tab;
-    QGridLayout *gridLayout;
-    QListView *listView;
-    QFormLayout *formLayout;
-    QLabel *label;
-    QComboBox *comboBox;
-    QWidget *tab_2;
+    QWidget *medtab;
+    QWidget *mattab;
+    QWidget *proptab;
+    QWidget *enttab;
+    QWidget *sndtab;
     QDockWidget *dock_widget3;
     QWidget *dockWidgetContents_3;
+    QGridLayout *gridLayout_3;
+    QFrame *frame_4;
+    QDockWidget *dock_widget1;
+    QWidget *dockWidgetContents;
+    QHBoxLayout *horizontalLayout;
+    QFrame *frame;
+    QHBoxLayout *horizontalLayout_3;
+    QFrame *frame_2;
+    QHBoxLayout *horizontalLayout_4;
+    QToolBox *toolBox;
+    QWidget *transpage;
+    QWidget *selectpage;
+    QToolBar *toolBar;
+    QToolBar *toolBar_2;
+    QToolBar *toolBar_3;
+    QToolBar *toolBar_4;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(707, 416);
+        MainWindow->resize(804, 444);
+        MainWindow->setStyleSheet(QString::fromUtf8("QMainWindow::separator {\n"
+"     background: rgb(42, 40, 40);\n"
+"     width: 3px; /* when vertical */\n"
+"     height: 3px; /* when horizontal */\n"
+" }\n"
+"\n"
+" QMainWindow::separator:hover {\n"
+"     background:rgb(131, 16, 197);\n"
+" }\n"
+"\n"
+"QMainWindow {\n"
+"\n"
+" }\n"
+"\n"
+"QToolBar {\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 65, 65, 255), stop:1 rgba(48, 48, 48, 255));\n"
+"	 border: 1px inset;\n"
+"	border-color: rgb(255, 0, 0);\n"
+"	border-top-color: rgb(113, 113, 113);\n"
+"	border-right-color: rgb(89, 89, 89);\n"
+"	border-bottom-color: rgb(35, 34, 34);\n"
+"	border-left-color: rgb(62, 62, 62);\n"
+" }\n"
+"\n"
+"QToolBar::handle {\n"
+"	background-image: url(:/Res/Images/ToolBar/Toolbar-Handle.png);\n"
+"}\n"
+"\n"
+""));
         MainWindow->setDockNestingEnabled(true);
         MainWindow->setDockOptions(QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks|QMainWindow::VerticalTabs);
         actionNew_Map = new QAction(MainWindow);
@@ -800,11 +838,155 @@ public:
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         centralWidget->setAcceptDrops(false);
-        centralWidget->setAutoFillBackground(true);
+        centralWidget->setAutoFillBackground(false);
+        horizontalLayout_2 = new QHBoxLayout(centralWidget);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        stackedWidget = new QStackedWidget(centralWidget);
+        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName(QString::fromUtf8("page_2"));
+        stackedWidget->addWidget(page_2);
+
+        horizontalLayout_2->addWidget(stackedWidget);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 707, 21));
+        menuBar->setGeometry(QRect(0, 0, 804, 22));
+        menuBar->setStyleSheet(QString::fromUtf8(" QMenuBar {\n"
+"     \n"
+"	    font-variant:normal;\n"
+"        font-weight:bold;\n"
+"		color: rgb(218, 218, 218);\n"
+"		font: 10pt \"Segoe UI\";\n"
+"        font-style: normal;\n"
+" 		border: 1px outset;\n"
+"		border-top-color: rgb(48, 48, 48);\n"
+"		border-right-color: transparent;\n"
+"		border-left-color: transparent;\n"
+" 		border-bottom-color: rgb(35, 34, 34);\n"
+"	    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(64, 64, 64), stop:1 rgba(51, 49, 49));\n"
+"\n"
+"\n"
+" }\n"
+"\n"
+" QMenuBar::item {\n"
+"\n"
+"		font-variant:normal;\n"
+"        font-weight:bold;\n"
+"		font: 8pt \"Segoe UI\";\n"
+"        font-style: normal;\n"
+"     	spacing: 3px; /* spacing between menu bar items */\n"
+"        padding: 1px 4px;\n"
+"  	    border-radius: 4px;\n"
+"  	    background: transparent;\n"
+" }\n"
+"\n"
+" QMenuBar::item:selected { /* when selected using mouse or keyboard */\n"
+"	background-color: rgb(131, 16, 197);\n"
+"    border-top-left-radius: 5px;\n"
+"    border-top-right-radius: 5px;\n"
+""
+                        "	border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"	border: 0px inset\n"
+" }\n"
+"\n"
+" QMenuBar::item:pressed {\n"
+"     \n"
+"	background-color: rgb(93, 93, 93, 255);\n"
+" }\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+" QMenu {\n"
+"	 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(93, 93, 93, 255), stop:1 rgba(70, 70, 70, 255));\n"
+"     margin: 2px; /* some spacing around the menu */\n"
+"	border-color: rgb(255, 255, 255);\n"
+"\n"
+" }\n"
+"\n"
+" QMenu::item {\n"
+"     padding: 2px 25px 2px 20px;\n"
+"     border: 1px solid transparent; /* reserve space for selection border */\n"
+"	 color: rgb(218, 218, 218);\n"
+" }\n"
+"\n"
+" QMenu::item:selected {\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(131, 16, 197, 200), stop:1 rgb(92, 10, 139, 200));\n"
+"	border-color: #000000;\n"
+"	border-radius: 3px;\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+" }\n"
+"\n"
+" QMenu::icon:checked { /* appearance of a 'checked' icon */\n"
+"     background: gray;\n"
+"    "
+                        " border: 1px inset gray;\n"
+"     position: absolute;\n"
+"     top: 1px;\n"
+"     right: 1px;\n"
+"     bottom: 1px;\n"
+"     left: 1px;\n"
+" }\n"
+"\n"
+" QMenu::separator {\n"
+"     height: 1px;\n"
+" 	 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(50, 50, 50, 0), stop:0.335227 rgba(50, 50, 50, 255), stop:0.647727 rgba(50, 50, 50, 255), stop:1 rgba(50, 50, 50, 0));\n"
+"     margin-left: 10px;\n"
+"     margin-right: 5px;\n"
+" }\n"
+"\n"
+" QMenu::indicator {\n"
+"     width: 13px;\n"
+"     height: 13px;\n"
+" }\n"
+"\n"
+" /* non-exclusive indicator = check box style indicator (see QActionGroup::setExclusive) */\n"
+" QMenu::indicator:non-exclusive:unchecked {\n"
+"     image: url(:/images/checkbox_unchecked.png);\n"
+" }\n"
+"\n"
+" QMenu::indicator:non-exclusive:unchecked:selected {\n"
+"     image: url(:/images/checkbox_unchecked_hover.png);\n"
+" }\n"
+"\n"
+" QMenu::indicator:non-exclusive:checked {\n"
+"     image: url(:/images/checkbox_checked.png);\n"
+" }\n"
+"\n"
+" QMenu::indicator:non"
+                        "-exclusive:checked:selected {\n"
+"     image: url(:/images/checkbox_checked_hover.png);\n"
+" }\n"
+"\n"
+" /* exclusive indicator = radio button style indicator (see QActionGroup::setExclusive) */\n"
+" QMenu::indicator:exclusive:unchecked {\n"
+"     image: url(:/images/radiobutton_unchecked.png);\n"
+" }\n"
+"\n"
+" QMenu::indicator:exclusive:unchecked:selected {\n"
+"     image: url(:/images/radiobutton_unchecked_hover.png);\n"
+" }\n"
+"\n"
+" QMenu::indicator:exclusive:checked {\n"
+"     image: url(:/images/radiobutton_checked.png);\n"
+" }\n"
+"\n"
+" QMenu::indicator:exclusive:checked:selected {\n"
+"     image: url(:/images/radiobutton_checked_hover.png);\n"
+" }"));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuReload_2 = new QMenu(menuFile);
@@ -874,103 +1056,371 @@ public:
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        statusBar->setStyleSheet(QString::fromUtf8(" QStatusBar {\n"
+"     background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(64, 64, 64, 255), stop:1 rgba(51, 49, 49, 255))\n"
+" }\n"
+"\n"
+" QStatusBar::item {\n"
+"     border: 1px solid red;\n"
+"     border-radius: 3px;\n"
+" }"));
         MainWindow->setStatusBar(statusBar);
-        toolBar = new QToolBar(MainWindow);
-        toolBar->setObjectName(QString::fromUtf8("toolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
-        dock_widget1 = new QDockWidget(MainWindow);
-        dock_widget1->setObjectName(QString::fromUtf8("dock_widget1"));
-        dock_widget1->setMinimumSize(QSize(153, 304));
-        dock_widget1->setAutoFillBackground(true);
-        dock_widget1->setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea);
-        dockWidgetContents = new QWidget();
-        dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
-        verticalLayout = new QVBoxLayout(dockWidgetContents);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        toolBox = new QToolBox(dockWidgetContents);
-        toolBox->setObjectName(QString::fromUtf8("toolBox"));
-        toolBox->setContextMenuPolicy(Qt::DefaultContextMenu);
-        toolBox->setFrameShape(QFrame::NoFrame);
-        toolBox->setFrameShadow(QFrame::Plain);
-        page = new QWidget();
-        page->setObjectName(QString::fromUtf8("page"));
-        page->setGeometry(QRect(0, 0, 135, 188));
-        toolBox->addItem(page, QString::fromUtf8("Page 1"));
-        page_3 = new QWidget();
-        page_3->setObjectName(QString::fromUtf8("page_3"));
-        page_3->setGeometry(QRect(0, 0, 98, 28));
-        toolBox->addItem(page_3, QString::fromUtf8("Page"));
-        page_4 = new QWidget();
-        page_4->setObjectName(QString::fromUtf8("page_4"));
-        page_4->setGeometry(QRect(0, 0, 98, 28));
-        toolBox->addItem(page_4, QString::fromUtf8("Page"));
-        page_5 = new QWidget();
-        page_5->setObjectName(QString::fromUtf8("page_5"));
-        page_5->setGeometry(QRect(0, 0, 98, 28));
-        toolBox->addItem(page_5, QString::fromUtf8("Page"));
-        page_2 = new QWidget();
-        page_2->setObjectName(QString::fromUtf8("page_2"));
-        page_2->setGeometry(QRect(0, 0, 98, 28));
-        toolBox->addItem(page_2, QString::fromUtf8("Page 2"));
-
-        verticalLayout->addWidget(toolBox);
-
-        dock_widget1->setWidget(dockWidgetContents);
-        MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dock_widget1);
         dock_widget2 = new QDockWidget(MainWindow);
         dock_widget2->setObjectName(QString::fromUtf8("dock_widget2"));
+        dock_widget2->setStyleSheet(QString::fromUtf8(" QDockWidget {\n"
+"	 color: #dadada;\n"
+" }\n"
+"\n"
+" QDockWidget::title {	\n"
+"background-image:url(:/Res/Images/Titlebar-graphic.png) ;\n"
+"    background-position: bottom left;\n"
+"    background-origin: selft;\n"
+"    background-repeat: none;\n"
+"     text-align: center; /* align the text to the center */\n"
+"	 padding: 3px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #414141, stop:1 #333131);\n"
+"	 border: 1px inset;\n"
+"	 border-top-color: #525151;\n"
+"	 border-right-color: #525151;\n"
+"	 border-bottom-color:  Transperent;\n"
+"	 border-left-color: #525151;\n"
+"\n"
+" }\n"
+"\n"
+" QDockWidget::close-button, QDockWidget::float-button {\n"
+"     border: 1px solid transparent;\n"
+" }\n"
+"\n"
+" QDockWidget::close-button:hover, QDockWidget::float-button:hover {\n"
+"     border: 1px solid transparent;\n"
+" }\n"
+"\n"
+" QDockWidget::close-button:pressed, QDockWidget::float-button:pressed {\n"
+"     padding: 1px -1px -1px 1px;\n"
+" } QDockWidget {\n"
+"	 color: #dadada;\n"
+" }\n"
+""
+                        "\n"
+" QDockWidget::title {\n"
+"     text-align: center; /* align the text to the center */\n"
+"	 padding: 3px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #414141, stop:1 #333131);\n"
+"	 border: 1px inset;\n"
+"	 border-top-color: #525151;\n"
+"	 border-right-color: #525151;\n"
+"	 border-bottom-color:  Transperent;\n"
+"	 border-left-color: #525151;\n"
+" }\n"
+"\n"
+" QDockWidget::close-button, QDockWidget::float-button {\n"
+"     border: 1px solid transparent;\n"
+" }\n"
+"\n"
+" QDockWidget::close-button:hover, QDockWidget::float-button:hover {\n"
+"     border: 1px solid transparent;\n"
+" }\n"
+"\n"
+" QDockWidget::close-button:pressed, QDockWidget::float-button:pressed {\n"
+"     padding: 1px -1px -1px 1px;\n"
+" }"));
         dockWidgetContents_2 = new QWidget();
         dockWidgetContents_2->setObjectName(QString::fromUtf8("dockWidgetContents_2"));
-        horizontalLayout = new QHBoxLayout(dockWidgetContents_2);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        tabWidget = new QTabWidget(dockWidgetContents_2);
+        horizontalLayout_5 = new QHBoxLayout(dockWidgetContents_2);
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        frame_3 = new QFrame(dockWidgetContents_2);
+        frame_3->setObjectName(QString::fromUtf8("frame_3"));
+        frame_3->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"	background-color: #2a2828;\n"
+"	border: 1px inset;\n"
+"    border-color: #525151;\n"
+"}"));
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        verticalLayout = new QVBoxLayout(frame_3);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        tabWidget = new QTabWidget(frame_3);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tab = new QWidget();
-        tab->setObjectName(QString::fromUtf8("tab"));
-        gridLayout = new QGridLayout(tab);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        listView = new QListView(tab);
-        listView->setObjectName(QString::fromUtf8("listView"));
+        tabWidget->setStyleSheet(QString::fromUtf8("QWidget { /*INIT */\n"
+"	border-color: transparent;\n"
+"}\n"
+"\n"
+"QTabBar {\n"
+"	border-image: url(:/Res/Images/Tabs/tab-bg.png) 4 10 4 10;\n"
+"	border-top: 4px transparent;\n"
+"	border-bottom: 4px transparent;\n"
+"	border-right: 15px transparent;\n"
+"	border-left: 15px transparent;\n"
+"	margin-top: 0px;\n"
+"	margin-bottom: 0px;\n"
+" }\n"
+"\n"
+"QTabBar::tab {\n"
+"	border-image: url(:/Res/Images/Tabs/inact-tab.png) 4 10 4 10;\n"
+"	border-top: 4px transparent;\n"
+"	border-bottom: 4px transparent;\n"
+"	border-right: 15px transparent;\n"
+"	border-left: 15px transparent;\n"
+"    min-width: 50px;\n"
+"	color: rgb(97, 97, 97);\n"
+"	padding-left: 10px;\n"
+"    padding-right: 10px;\n"
+"    margin-left: -10px;\n"
+"    margin-right: -10px;\n"
+" }\n"
+"\n"
+"QTabBar::tab:selected {\n"
+"    border: 0px transparent;\n"
+"	background-color: transparent;\n"
+"	border-image: url(:/Res/Images/Tabs/act-tab.png) 4 10 4 10;\n"
+"	border-top: 5px transparent;\n"
+"	border-bottom: 4px transparent;\n"
+"	border-right: 10px transparent;\n"
+""
+                        "	border-left: 10px transparent;\n"
+"	color: #dadada;\n"
+" }\n"
+"\n"
+"QTabBar::tab:first:selected {\n"
+"     margin-left: 0; /* the first selected tab has nothing to overlap with on the left */\n"
+" }\n"
+"\n"
+" QTabBar::tab:last:selected {\n"
+"     margin-right: 0; /* the last selected tab has nothing to overlap with on the right */\n"
+" }\n"
+"\n"
+"QTabBar::tab:only-one {\n"
+"     margin: 0; /* if there is only one tab, we don't want overlapping margins */\n"
+" }\n"
+"\n"
+" QTabBar::tear {\n"
+"     image: url(tear_indicator.png);\n"
+" }\n"
+"\n"
+"QTabBar::scroller { /* the width of the scroll buttons */\n"
+"     width: 20px;\n"
+" }\n"
+"\n"
+" QTabBar QToolButton { /* the scroll buttons are tool buttons */\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 65, 65, 255), stop:0.494318 rgba(56, 56, 56, 255), stop:1 rgba(65, 65, 65, 255));\n"
+"	border: 1px solid;\n"
+"	border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(34, 34, 34, 255), stop:0.505682 rg"
+                        "ba(20, 20, 20, 255), stop:1 rgba(34, 34, 34, 255));\n"
+"\n"
+" }"));
+        tabWidget->setTabShape(QTabWidget::Rounded);
+        tabWidget->setDocumentMode(true);
+        tabWidget->setMovable(true);
+        medtab = new QWidget();
+        medtab->setObjectName(QString::fromUtf8("medtab"));
+        tabWidget->addTab(medtab, QString());
+        mattab = new QWidget();
+        mattab->setObjectName(QString::fromUtf8("mattab"));
+        tabWidget->addTab(mattab, QString());
+        proptab = new QWidget();
+        proptab->setObjectName(QString::fromUtf8("proptab"));
+        tabWidget->addTab(proptab, QString());
+        enttab = new QWidget();
+        enttab->setObjectName(QString::fromUtf8("enttab"));
+        tabWidget->addTab(enttab, QString());
+        sndtab = new QWidget();
+        sndtab->setObjectName(QString::fromUtf8("sndtab"));
+        tabWidget->addTab(sndtab, QString());
 
-        gridLayout->addWidget(listView, 0, 0, 1, 1);
-
-        formLayout = new QFormLayout();
-        formLayout->setSpacing(6);
-        formLayout->setObjectName(QString::fromUtf8("formLayout"));
-        label = new QLabel(tab);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        formLayout->setWidget(0, QFormLayout::LabelRole, label);
-
-        comboBox = new QComboBox(tab);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-
-        formLayout->setWidget(0, QFormLayout::FieldRole, comboBox);
+        verticalLayout->addWidget(tabWidget);
 
 
-        gridLayout->addLayout(formLayout, 1, 0, 1, 1);
-
-        tabWidget->addTab(tab, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        tabWidget->addTab(tab_2, QString());
-
-        horizontalLayout->addWidget(tabWidget);
+        horizontalLayout_5->addWidget(frame_3);
 
         dock_widget2->setWidget(dockWidgetContents_2);
         MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dock_widget2);
         dock_widget3 = new QDockWidget(MainWindow);
         dock_widget3->setObjectName(QString::fromUtf8("dock_widget3"));
+        dock_widget3->setStyleSheet(QString::fromUtf8(" QDockWidget {\n"
+"	 color: #dadada;\n"
+" }\n"
+"\n"
+" QDockWidget::title {	\n"
+"background-image:url(:/Res/Images/Titlebar-graphic.png) ;\n"
+"    background-position: bottom left;\n"
+"    background-origin: selft;\n"
+"    background-repeat: none;\n"
+"     text-align: center; /* align the text to the center */\n"
+"	 padding: 3px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #414141, stop:1 #333131);\n"
+"	 border: 1px inset;\n"
+"	 border-top-color: #525151;\n"
+"	 border-right-color: #525151;\n"
+"	 border-bottom-color:  Transperent;\n"
+"	 border-left-color: #525151;\n"
+"\n"
+" }\n"
+"\n"
+" QDockWidget::close-button, QDockWidget::float-button {\n"
+"     border: 1px solid transparent;\n"
+" }\n"
+"\n"
+" QDockWidget::close-button:hover, QDockWidget::float-button:hover {\n"
+"     border: 1px solid transparent;\n"
+" }\n"
+"\n"
+" QDockWidget::close-button:pressed, QDockWidget::float-button:pressed {\n"
+"     padding: 1px -1px -1px 1px;\n"
+" }"));
         dockWidgetContents_3 = new QWidget();
         dockWidgetContents_3->setObjectName(QString::fromUtf8("dockWidgetContents_3"));
+        gridLayout_3 = new QGridLayout(dockWidgetContents_3);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        gridLayout_3->setVerticalSpacing(6);
+        frame_4 = new QFrame(dockWidgetContents_3);
+        frame_4->setObjectName(QString::fromUtf8("frame_4"));
+        frame_4->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"	background-color: #2a2828;\n"
+"	border: 1px inset;\n"
+"    border-color: #525151;\n"
+"}"));
+        frame_4->setFrameShape(QFrame::StyledPanel);
+        frame_4->setFrameShadow(QFrame::Raised);
+
+        gridLayout_3->addWidget(frame_4, 0, 0, 1, 1);
+
         dock_widget3->setWidget(dockWidgetContents_3);
         MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dock_widget3);
+        dock_widget1 = new QDockWidget(MainWindow);
+        dock_widget1->setObjectName(QString::fromUtf8("dock_widget1"));
+        dock_widget1->setMinimumSize(QSize(153, 304));
+        dock_widget1->setAutoFillBackground(false);
+        dock_widget1->setStyleSheet(QString::fromUtf8(" QDockWidget {\n"
+"	 color: #dadada;\n"
+" }\n"
+"\n"
+" QDockWidget::title {	\n"
+"background-image:url(:/Res/Images/Titlebar-graphic.png) ;\n"
+"    background-position: bottom left;\n"
+"    background-origin: selft;\n"
+"    background-repeat: none;\n"
+"     text-align: center; /* align the text to the center */\n"
+"	 padding: 3px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #414141, stop:1 #333131);\n"
+"	 border: 1px inset;\n"
+"	 border-top-color: #525151;\n"
+"	 border-right-color: #525151;\n"
+"	 border-bottom-color:  Transperent;\n"
+"	 border-left-color: #525151;\n"
+"\n"
+" }\n"
+"\n"
+" QDockWidget::close-button, QDockWidget::float-button {\n"
+"     border: 1px solid transparent;\n"
+" }\n"
+"\n"
+" QDockWidget::close-button:hover, QDockWidget::float-button:hover {\n"
+"     border: 1px solid transparent;\n"
+" }\n"
+"\n"
+" QDockWidget::close-button:pressed, QDockWidget::float-button:pressed {\n"
+"     padding: 1px -1px -1px 1px;\n"
+" }"));
+        dock_widget1->setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea);
+        dockWidgetContents = new QWidget();
+        dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
+        horizontalLayout = new QHBoxLayout(dockWidgetContents);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        frame = new QFrame(dockWidgetContents);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"	background-color: #2a2828;\n"
+"	border: 1px inset;\n"
+"    border-color: #525151;\n"
+"}"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        horizontalLayout_3 = new QHBoxLayout(frame);
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setContentsMargins(3, 3, 3, 3);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        frame_2 = new QFrame(frame);
+        frame_2->setObjectName(QString::fromUtf8("frame_2"));
+        frame_2->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"	background-color: rgb(70, 70, 70);\n"
+"    border-color: rgb(116, 116, 116);\n"
+"	border-radius: 2px;\n"
+"	background-image: url(:/Res/Images/tool-shelf-logo.png);\n"
+"    background-position: bottom left;\n"
+"    background-origin: content;\n"
+"    background-repeat: none;\n"
+"\n"
+"}\n"
+"\n"
+""));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        horizontalLayout_4 = new QHBoxLayout(frame_2);
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(2, 2, 2, 70);
+        toolBox = new QToolBox(frame_2);
+        toolBox->setObjectName(QString::fromUtf8("toolBox"));
+        toolBox->setStyleSheet(QString::fromUtf8("QToolBox {\n"
+"	border: 1px outset;\n"
+"	border-color: transparent;\n"
+"	background-image: url();\n"
+"}\n"
+"\n"
+" QToolBox::tab {\n"
+"	background-color: qlineargradient(spread:reflect, x1:0, y1:0, 			x2:0, y2:1, stop:0 rgba(102, 102, 102, 255), stop:1 rgba(92, 	92, 92, 255));\n"
+"        border-radius: 2px;\n"
+"	color: rgb(218, 218, 218);\n"
+"	border: 1px outset\n"
+"}\n"
+"\n"
+"QWidget {\n"
+"	background-color: rgb(70, 70, 70);\n"
+"    border-color: transparent;\n"
+"}\n"
+"\n"
+""));
+        transpage = new QWidget();
+        transpage->setObjectName(QString::fromUtf8("transpage"));
+        transpage->setGeometry(QRect(0, 0, 150, 225));
+        toolBox->addItem(transpage, QString::fromUtf8("Translation"));
+        selectpage = new QWidget();
+        selectpage->setObjectName(QString::fromUtf8("selectpage"));
+        selectpage->setGeometry(QRect(0, 0, 150, 225));
+        toolBox->addItem(selectpage, QString::fromUtf8("Selection"));
+
+        horizontalLayout_4->addWidget(toolBox);
+
+
+        horizontalLayout_3->addWidget(frame_2);
+
+
+        horizontalLayout->addWidget(frame);
+
+        dock_widget1->setWidget(dockWidgetContents);
+        MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dock_widget1);
+        toolBar = new QToolBar(MainWindow);
+        toolBar->setObjectName(QString::fromUtf8("toolBar"));
+        toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
+        toolBar_2 = new QToolBar(MainWindow);
+        toolBar_2->setObjectName(QString::fromUtf8("toolBar_2"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar_2);
+        toolBar_3 = new QToolBar(MainWindow);
+        toolBar_3->setObjectName(QString::fromUtf8("toolBar_3"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar_3);
+        toolBar_4 = new QToolBar(MainWindow);
+        toolBar_4->setObjectName(QString::fromUtf8("toolBar_4"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar_4);
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuEdit->menuAction());
@@ -1258,11 +1708,19 @@ public:
         menuCurve->addAction(actionInsert_Curve_Control_Points);
         menuCurve->addAction(actionRemove_Curve_Controle_Points);
         menuHelp->addAction(actionAbout);
+        toolBar->addAction(actionNew_Map);
+        toolBar->addAction(actionOpen_Map);
+        toolBar->addAction(actionSave);
+        toolBar_2->addAction(actionCopy);
+        toolBar_2->addAction(actionPaste);
+        toolBar_3->addAction(actionUndo);
+        toolBar_3->addAction(actionRedo);
 
         retranslateUi(MainWindow);
 
-        toolBox->setCurrentIndex(0);
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
+        toolBox->setCurrentIndex(1);
+        toolBox->layout()->setSpacing(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1527,18 +1985,20 @@ public:
         menuCurve->setTitle(QApplication::translate("MainWindow", "Curve", 0, QApplication::UnicodeUTF8));
         menuScripts->setTitle(QApplication::translate("MainWindow", "Scripts", 0, QApplication::UnicodeUTF8));
         menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0, QApplication::UnicodeUTF8));
-        toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0, QApplication::UnicodeUTF8));
-        dock_widget1->setWindowTitle(QApplication::translate("MainWindow", "Tool Shelf", 0, QApplication::UnicodeUTF8));
-        toolBox->setItemText(toolBox->indexOf(page), QApplication::translate("MainWindow", "Page 1", 0, QApplication::UnicodeUTF8));
-        toolBox->setItemText(toolBox->indexOf(page_3), QApplication::translate("MainWindow", "Page", 0, QApplication::UnicodeUTF8));
-        toolBox->setItemText(toolBox->indexOf(page_4), QApplication::translate("MainWindow", "Page", 0, QApplication::UnicodeUTF8));
-        toolBox->setItemText(toolBox->indexOf(page_5), QApplication::translate("MainWindow", "Page", 0, QApplication::UnicodeUTF8));
-        toolBox->setItemText(toolBox->indexOf(page_2), QApplication::translate("MainWindow", "Page 2", 0, QApplication::UnicodeUTF8));
         dock_widget2->setWindowTitle(QApplication::translate("MainWindow", "Asset Browser", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("MainWindow", "Set Directory:", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Materials", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Models", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(medtab), QApplication::translate("MainWindow", "Media", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(mattab), QApplication::translate("MainWindow", "Materials", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(proptab), QApplication::translate("MainWindow", "Props", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(enttab), QApplication::translate("MainWindow", "Entities", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(sndtab), QApplication::translate("MainWindow", "Sounds", 0, QApplication::UnicodeUTF8));
         dock_widget3->setWindowTitle(QApplication::translate("MainWindow", "Properties", 0, QApplication::UnicodeUTF8));
+        dock_widget1->setWindowTitle(QApplication::translate("MainWindow", "Tool Shelf", 0, QApplication::UnicodeUTF8));
+        toolBox->setItemText(toolBox->indexOf(transpage), QApplication::translate("MainWindow", "Translation", 0, QApplication::UnicodeUTF8));
+        toolBox->setItemText(toolBox->indexOf(selectpage), QApplication::translate("MainWindow", "Selection", 0, QApplication::UnicodeUTF8));
+        toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0, QApplication::UnicodeUTF8));
+        toolBar_2->setWindowTitle(QApplication::translate("MainWindow", "toolBar_2", 0, QApplication::UnicodeUTF8));
+        toolBar_3->setWindowTitle(QApplication::translate("MainWindow", "toolBar_3", 0, QApplication::UnicodeUTF8));
+        toolBar_4->setWindowTitle(QApplication::translate("MainWindow", "toolBar_4", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

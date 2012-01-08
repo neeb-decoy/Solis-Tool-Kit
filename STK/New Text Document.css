@@ -1,0 +1,22 @@
+
+
+QWidget {
+	background-color: rgb(42, 40, 40);
+	border: 1px inset;
+    border-top-color: transparent;
+ }
+
+
+QFrame {
+	background-color: rgb(70, 70, 70);
+    border-color: rgb(116, 116, 116);
+
+}
+
+ QToolBox::tab {
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(102, 102, 102, 255), stop:1 rgba(92, 	92, 92, 255));
+    border-radius: 2px;
+	color: rgb(218, 218, 218);
+	border: 1px outset
+}
+

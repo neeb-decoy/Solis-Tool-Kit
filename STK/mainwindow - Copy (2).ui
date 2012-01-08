@@ -1,0 +1,2399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>610</width>
+    <height>416</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Solis Tool Kit</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow::separator {
+     background: transparent;
+     width: 3px; /* when vertical */
+     height: 3px; /* when horizontal */
+ }
+
+ QMainWindow::separator:hover {
+     background:rgb(131, 16, 197)rgb(131, 16, 197);
+ }
+
+QMainWindow {
+background-color: rgb(42, 40, 40);
+border-color: rgb(255, 255, 255);
+gridline-color: rgb(255, 170, 255);
+selection-color: rgb(85, 255, 255);
+ }
+</string>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>true</bool>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks|QMainWindow::VerticalTabs</set>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QMdiArea" name="mdiArea">
+      <property name="background">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>39</red>
+         <green>37</green>
+         <blue>37</blue>
+        </color>
+       </brush>
+      </property>
+      <property name="viewMode">
+       <enum>QMdiArea::SubWindowView</enum>
+      </property>
+      <property name="documentMode">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>610</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"> QMenuBar {
+     
+	    font-variant:normal;
+        font-weight:bold;
+		color: rgb(218, 218, 218);
+		font: 10pt &quot;Segoe UI&quot;;
+        font-style: normal;
+	    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(64, 64, 64, 255), stop:1 rgba(51, 49, 49, 255))
+ 
+ }
+
+ QMenuBar::item {
+
+		font-variant:normal;
+        font-weight:bold;
+		font: 8pt &quot;Segoe UI&quot;;
+        font-style: normal;
+     spacing: 3px; /* spacing between menu bar items */
+     padding: 1px 4px;
+     border-radius: 4px;
+     background: transparent;
+ }
+
+ QMenuBar::item:selected { /* when selected using mouse or keyboard */
+	background-color: rgb(131, 16, 197);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+	border: 0px inset
+ }
+
+ QMenuBar::item:pressed {
+     
+	background-color: rgb(93, 93, 93, 255);
+ }
+
+
+
+
+
+ QMenu {
+	 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(93, 93, 93, 255), stop:1 rgba(70, 70, 70, 255));
+     margin: 2px; /* some spacing around the menu */
+	border-color: rgb(255, 255, 255);
+
+ }
+
+ QMenu::item {
+     padding: 2px 25px 2px 20px;
+     border: 1px solid transparent; /* reserve space for selection border */
+	 color: rgb(218, 218, 218);
+ }
+
+ QMenu::item:selected {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(131, 16, 197, 200), stop:1 rgb(92, 10, 139, 200));
+	border-color: rgb(41, 4, 63);
+	border-radius: 3px;
+
+
+
+
+
+ }
+
+ QMenu::icon:checked { /* appearance of a 'checked' icon */
+     background: gray;
+     border: 1px inset gray;
+     position: absolute;
+     top: 1px;
+     right: 1px;
+     bottom: 1px;
+     left: 1px;
+ }
+
+ QMenu::separator {
+     height: 1px;
+ 	 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(50, 50, 50, 0), stop:0.335227 rgba(50, 50, 50, 255), stop:0.647727 rgba(50, 50, 50, 255), stop:1 rgba(50, 50, 50, 0));
+     margin-left: 10px;
+     margin-right: 5px;
+ }
+
+ QMenu::indicator {
+     width: 13px;
+     height: 13px;
+ }
+
+ /* non-exclusive indicator = check box style indicator (see QActionGroup::setExclusive) */
+ QMenu::indicator:non-exclusive:unchecked {
+     image: url(:/images/checkbox_unchecked.png);
+ }
+
+ QMenu::indicator:non-exclusive:unchecked:selected {
+     image: url(:/images/checkbox_unchecked_hover.png);
+ }
+
+ QMenu::indicator:non-exclusive:checked {
+     image: url(:/images/checkbox_checked.png);
+ }
+
+ QMenu::indicator:non-exclusive:checked:selected {
+     image: url(:/images/checkbox_checked_hover.png);
+ }
+
+ /* exclusive indicator = radio button style indicator (see QActionGroup::setExclusive) */
+ QMenu::indicator:exclusive:unchecked {
+     image: url(:/images/radiobutton_unchecked.png);
+ }
+
+ QMenu::indicator:exclusive:unchecked:selected {
+     image: url(:/images/radiobutton_unchecked_hover.png);
+ }
+
+ QMenu::indicator:exclusive:checked {
+     image: url(:/images/radiobutton_checked.png);
+ }
+
+ QMenu::indicator:exclusive:checked:selected {
+     image: url(:/images/radiobutton_checked_hover.png);
+ }</string>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuReload_2">
+     <property name="title">
+      <string>Reload Item</string>
+     </property>
+     <addaction name="actionReload_all_Models"/>
+     <addaction name="actionReload_selected_Models"/>
+     <addaction name="actionReload_Skins_2"/>
+     <addaction name="actionReload_Scripts_2"/>
+     <addaction name="actionReload_Readable_GUIs"/>
+     <addaction name="actionReload_Shaders_2"/>
+     <addaction name="actionReload_Defs_2"/>
+     <addaction name="actionReload_Particles_2"/>
+    </widget>
+    <addaction name="actionNew_Map"/>
+    <addaction name="separator"/>
+    <addaction name="actionOpen_Map"/>
+    <addaction name="actionRecent"/>
+    <addaction name="actionImport_Map"/>
+    <addaction name="actionImport_Prefab"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionSave_Copy_As"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_selecetion_as_Map"/>
+    <addaction name="actionSave_selection_as_Prefab"/>
+    <addaction name="actionExport_selection_as"/>
+    <addaction name="actionSave_Region"/>
+    <addaction name="separator"/>
+    <addaction name="menuReload_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionSelect_Game"/>
+    <addaction name="separator"/>
+    <addaction name="actionPoint_File"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menuSelection">
+     <property name="title">
+      <string>Select</string>
+     </property>
+     <addaction name="actionClear_selection"/>
+     <addaction name="actionInvert_selection"/>
+     <addaction name="actionSelect_complete_tall"/>
+     <addaction name="actionSelect_inside"/>
+     <addaction name="actionSelect_touching"/>
+     <addaction name="actionSelect_children"/>
+     <addaction name="actionExpand_selection_to_all_Siblings"/>
+    </widget>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="menuSelection"/>
+    <addaction name="separator"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="actionPaste_to_Camera"/>
+    <addaction name="separator"/>
+    <addaction name="actionDuplicate"/>
+    <addaction name="actionDelete"/>
+    <addaction name="separator"/>
+    <addaction name="actionReparent_Primitives"/>
+    <addaction name="actionReparent_Primitives_to_Worldspawn"/>
+    <addaction name="actionMerge_selected_Entities"/>
+    <addaction name="separator"/>
+    <addaction name="actionCopy_Shader_2"/>
+    <addaction name="actionPaste_shader"/>
+    <addaction name="actionPaste_Shader_natural"/>
+    <addaction name="separator"/>
+    <addaction name="actionKeyboard_Shortcuts"/>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <widget class="QMenu" name="menuLayout">
+     <property name="title">
+      <string>Layout</string>
+     </property>
+     <addaction name="actionFloating"/>
+     <addaction name="actionSplit_Pane_4_Up"/>
+     <addaction name="actionMaximized"/>
+     <addaction name="actionDefault"/>
+     <addaction name="actionSave_Custom"/>
+     <addaction name="actionLoad_Custom"/>
+    </widget>
+    <widget class="QMenu" name="menuCamera_Position">
+     <property name="title">
+      <string>Camera Position</string>
+     </property>
+     <addaction name="actionTop_Left"/>
+     <addaction name="actionTop_Right"/>
+     <addaction name="actionBottom_Left"/>
+     <addaction name="actionBottom_Right"/>
+    </widget>
+    <widget class="QMenu" name="menuCamera">
+     <property name="title">
+      <string>Camera</string>
+     </property>
+     <addaction name="actionCenter"/>
+     <addaction name="actionUp_Floor"/>
+     <addaction name="actionDown_Floor"/>
+     <addaction name="separator"/>
+     <addaction name="actionNext_Leak"/>
+     <addaction name="actionPrevious_Leak"/>
+    </widget>
+    <widget class="QMenu" name="menuOrthographic">
+     <property name="title">
+      <string>Orthographic</string>
+     </property>
+     <addaction name="actionNext_XY_XZ_YZ"/>
+     <addaction name="actionXY_Top"/>
+     <addaction name="actionYZ"/>
+     <addaction name="actionXz"/>
+     <addaction name="separator"/>
+     <addaction name="actionZoom_In"/>
+     <addaction name="actionZoom_Out"/>
+     <addaction name="action100_Home"/>
+     <addaction name="action100_Local"/>
+     <addaction name="actionZoom_Selected"/>
+    </widget>
+    <widget class="QMenu" name="menuHide_Show">
+     <property name="title">
+      <string>Hide/Show</string>
+     </property>
+     <addaction name="actionHide_Selected"/>
+     <addaction name="actionHide_Deselected"/>
+     <addaction name="actionShow_Hidden"/>
+    </widget>
+    <widget class="QMenu" name="menuShow">
+     <property name="title">
+      <string>Show</string>
+     </property>
+     <addaction name="actionShow_Angles"/>
+     <addaction name="actionShow_Names"/>
+     <addaction name="actionShow_Blocks"/>
+     <addaction name="actionShow_Coordinates"/>
+     <addaction name="actionShow_Window_Outline"/>
+     <addaction name="actionShow_Axes"/>
+     <addaction name="actionShow_Workzone"/>
+     <addaction name="actionShow_Size_Info"/>
+    </widget>
+    <widget class="QMenu" name="menuRegion">
+     <property name="title">
+      <string>Region</string>
+     </property>
+     <addaction name="actionSwitch_off"/>
+     <addaction name="actionSt_from_XY_view"/>
+     <addaction name="actionSet_from_Brush"/>
+     <addaction name="actionSet_from_Selection"/>
+    </widget>
+    <addaction name="actionNew_XY_view"/>
+    <addaction name="actionLayers"/>
+    <addaction name="actionConsole"/>
+    <addaction name="actionAsset_Browser"/>
+    <addaction name="actionEntity_Inspector"/>
+    <addaction name="actionLight_Inspector"/>
+    <addaction name="actionSurface_Inspector"/>
+    <addaction name="actionPatch_Inspector"/>
+    <addaction name="actionTexture_Tool"/>
+    <addaction name="actionScene_Browser"/>
+    <addaction name="separator"/>
+    <addaction name="menuLayout"/>
+    <addaction name="menuCamera_Position"/>
+    <addaction name="menuCamera"/>
+    <addaction name="menuOrthographic"/>
+    <addaction name="separator"/>
+    <addaction name="menuShow"/>
+    <addaction name="separator"/>
+    <addaction name="menuHide_Show"/>
+    <addaction name="menuRegion"/>
+    <addaction name="separator"/>
+    <addaction name="actionColours"/>
+    <addaction name="actionBackground_Image"/>
+   </widget>
+   <widget class="QMenu" name="menuModify">
+    <property name="title">
+     <string>Modify</string>
+    </property>
+    <widget class="QMenu" name="menuComponents">
+     <property name="title">
+      <string>Components</string>
+     </property>
+     <addaction name="actionEdges"/>
+     <addaction name="actionVertices"/>
+     <addaction name="actionFaces"/>
+     <addaction name="actionEntities"/>
+    </widget>
+    <widget class="QMenu" name="menuNudge">
+     <property name="title">
+      <string>Nudge</string>
+     </property>
+     <addaction name="actionNudge_Left"/>
+     <addaction name="actionNudge_Right"/>
+     <addaction name="actionNudge_Up"/>
+     <addaction name="actionNudge_Down"/>
+    </widget>
+    <widget class="QMenu" name="menuRotate">
+     <property name="title">
+      <string>Rotate</string>
+     </property>
+     <addaction name="actionRotate_X"/>
+     <addaction name="actionRotate_Y"/>
+     <addaction name="actionRotate_Z"/>
+    </widget>
+    <widget class="QMenu" name="menuMirror">
+     <property name="title">
+      <string>Mirror</string>
+     </property>
+     <addaction name="actionMirror_X"/>
+     <addaction name="actionMirror_Y"/>
+     <addaction name="actionMirror_Z"/>
+    </widget>
+    <addaction name="menuComponents"/>
+    <addaction name="separator"/>
+    <addaction name="menuNudge"/>
+    <addaction name="menuRotate"/>
+    <addaction name="menuMirror"/>
+    <addaction name="separator"/>
+    <addaction name="actionFree_Model_Rotation"/>
+    <addaction name="separator"/>
+    <addaction name="actionRotate_and_scale"/>
+   </widget>
+   <widget class="QMenu" name="menuGrid">
+    <property name="title">
+     <string>Grid</string>
+    </property>
+    <addaction name="actionSnap_selected_to_grid"/>
+    <addaction name="separator"/>
+    <addaction name="actionGrid_0_125"/>
+    <addaction name="actionGrid_0_25"/>
+    <addaction name="actionGrid_0_5"/>
+    <addaction name="actionGrid_1"/>
+    <addaction name="actionGrid_2"/>
+    <addaction name="actionGrid_4"/>
+    <addaction name="actionGrid_8"/>
+    <addaction name="actionGrid_9"/>
+    <addaction name="actionGrid_16"/>
+    <addaction name="actionGrid_32"/>
+    <addaction name="actionGrid_64"/>
+    <addaction name="actionGrid_128"/>
+    <addaction name="actionGrid_256"/>
+   </widget>
+   <widget class="QMenu" name="menuFilter">
+    <property name="title">
+     <string>Filter</string>
+    </property>
+    <addaction name="actionAll_Entities"/>
+    <addaction name="actionBrushes"/>
+    <addaction name="actionCaulk"/>
+    <addaction name="actionClip_Textures"/>
+    <addaction name="actionCollision_Surfaces"/>
+    <addaction name="actionDecals"/>
+    <addaction name="actionLights"/>
+    <addaction name="actionNodraw_Textures"/>
+    <addaction name="actionPatches"/>
+    <addaction name="actionPaths"/>
+    <addaction name="actionShadow_Textures"/>
+    <addaction name="actionTrigger_Textures"/>
+    <addaction name="actionVisportals"/>
+    <addaction name="actionWeather_Textures"/>
+    <addaction name="actionWorld_Geometry"/>
+    <addaction name="separator"/>
+    <addaction name="actionActivate_all_Filters"/>
+    <addaction name="actionDeactivate_all_filters"/>
+    <addaction name="separator"/>
+    <addaction name="actionEdit_Filters"/>
+   </widget>
+   <widget class="QMenu" name="menuMap">
+    <property name="title">
+     <string>Map</string>
+    </property>
+    <addaction name="actionMap_Info"/>
+    <addaction name="separator"/>
+    <addaction name="actionFind_Brush"/>
+    <addaction name="separator"/>
+    <addaction name="actionFixup_Map"/>
+    <addaction name="separator"/>
+    <addaction name="actionConversations"/>
+    <addaction name="actionDifficulty"/>
+    <addaction name="actionObjectives"/>
+   </widget>
+   <widget class="QMenu" name="menuEntity">
+    <property name="title">
+     <string>Entity</string>
+    </property>
+    <addaction name="actionRevert_group_to_worldspawn"/>
+    <addaction name="actionConnect_selected_entities"/>
+    <addaction name="actionBind_selected_entities"/>
+    <addaction name="actionEntity_Class_Tree"/>
+   </widget>
+   <widget class="QMenu" name="menuBrush">
+    <property name="title">
+     <string>Brush</string>
+    </property>
+    <widget class="QMenu" name="menuCSG">
+     <property name="title">
+      <string>CSG</string>
+     </property>
+     <addaction name="actionCSG_Add"/>
+     <addaction name="actionCSG_Subtract"/>
+     <addaction name="actionCSG_Merge"/>
+     <addaction name="separator"/>
+     <addaction name="actionMake_Hollow"/>
+     <addaction name="actionMake_Room"/>
+    </widget>
+    <widget class="QMenu" name="menuClipper">
+     <property name="title">
+      <string>Clipper</string>
+     </property>
+     <addaction name="actionClip_Selection"/>
+     <addaction name="actionSplit_Selection"/>
+     <addaction name="actionFlip_Clip_Orientation"/>
+    </widget>
+    <addaction name="actionPrism"/>
+    <addaction name="actionCone"/>
+    <addaction name="actionSphere"/>
+    <addaction name="separator"/>
+    <addaction name="menuCSG"/>
+    <addaction name="menuClipper"/>
+    <addaction name="separator"/>
+    <addaction name="actionTexture_Lock"/>
+    <addaction name="separator"/>
+    <addaction name="actionCreate_Decal_Patches"/>
+    <addaction name="actionMake_Visportal"/>
+   </widget>
+   <widget class="QMenu" name="menuVolume">
+    <property name="title">
+     <string>Volume</string>
+    </property>
+    <addaction name="actionTrigger_Volume"/>
+    <addaction name="actionWater_Volume"/>
+    <addaction name="actionForce_Volume"/>
+    <addaction name="actionPain_Volume"/>
+    <addaction name="actionBlock_All_Volume"/>
+    <addaction name="actionBlock_AI_Volme"/>
+    <addaction name="actionBlock_Projeciles_Volume"/>
+    <addaction name="actionCinematic_Volume"/>
+    <addaction name="actionSFX_Volume"/>
+    <addaction name="actionPost_Process_Volume"/>
+    <addaction name="actionPhysics_Volume"/>
+   </widget>
+   <widget class="QMenu" name="menuPatch">
+    <property name="title">
+     <string>Patch</string>
+    </property>
+    <widget class="QMenu" name="menuInsert">
+     <property name="title">
+      <string>Insert</string>
+     </property>
+     <addaction name="actionCreate_Dense_Cylinder"/>
+     <addaction name="actionCreate_Very_Dense_Cylinder"/>
+     <addaction name="actionCreate_Square_Cylinder"/>
+    </widget>
+    <widget class="QMenu" name="menuAppend">
+     <property name="title">
+      <string>Append</string>
+     </property>
+     <addaction name="actionInser_2_Columns_at_the_beginning"/>
+     <addaction name="actionInsert_2_Columns_at_the_end"/>
+     <addaction name="separator"/>
+     <addaction name="actionInsert_2_Rows_at_the_beginning"/>
+     <addaction name="actionInsert_2_Rows_at_the_end"/>
+    </widget>
+    <widget class="QMenu" name="menuDelete">
+     <property name="title">
+      <string>Delete</string>
+     </property>
+     <addaction name="actionDelete_2_Columns_from_the_beginning"/>
+     <addaction name="actionDelete_2_Columns_from_the_end"/>
+     <addaction name="separator"/>
+     <addaction name="actionDelete_2_Rows_from_the_beginning"/>
+     <addaction name="actionDelete_2_Rows_from_the_end"/>
+    </widget>
+    <widget class="QMenu" name="menuMatrix">
+     <property name="title">
+      <string>Matrix</string>
+     </property>
+     <addaction name="actionInvert"/>
+     <addaction name="actionRe_disperse"/>
+     <addaction name="actionTranspose"/>
+    </widget>
+    <addaction name="actionCreate_simple_patch_mesh"/>
+    <addaction name="separator"/>
+    <addaction name="actionCreate_End_cap"/>
+    <addaction name="actionCreate_Bevel"/>
+    <addaction name="separator"/>
+    <addaction name="actionCreate_Cone"/>
+    <addaction name="actionCreate_Cylinder"/>
+    <addaction name="actionCreate_Sphere"/>
+    <addaction name="actionMore_Cylinders"/>
+    <addaction name="separator"/>
+    <addaction name="menuInsert"/>
+    <addaction name="menuAppend"/>
+    <addaction name="menuDelete"/>
+    <addaction name="separator"/>
+    <addaction name="menuMatrix"/>
+    <addaction name="separator"/>
+    <addaction name="actionThicken_Selected_Patches"/>
+    <addaction name="actionCap_Selection"/>
+    <addaction name="actionCycle_Cap_Texture"/>
+    <addaction name="separator"/>
+    <addaction name="actionStitch_Patch_Texture"/>
+    <addaction name="actionBulge_Patch"/>
+   </widget>
+   <widget class="QMenu" name="menuCurve">
+    <property name="title">
+     <string>Curve</string>
+    </property>
+    <addaction name="actionCreat_NURBS_Curve"/>
+    <addaction name="actionCreate_CatmullRom_Curve"/>
+    <addaction name="separator"/>
+    <addaction name="actionConvert_NURBS_to_CatmullRom"/>
+    <addaction name="separator"/>
+    <addaction name="actionApend_Curve_Control_Point"/>
+    <addaction name="actionInsert_Curve_Control_Points"/>
+    <addaction name="actionRemove_Curve_Controle_Points"/>
+   </widget>
+   <widget class="QMenu" name="menuScripts">
+    <property name="title">
+     <string>Scripts</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuModify"/>
+   <addaction name="menuGrid"/>
+   <addaction name="menuFilter"/>
+   <addaction name="menuMap"/>
+   <addaction name="menuEntity"/>
+   <addaction name="menuBrush"/>
+   <addaction name="menuVolume"/>
+   <addaction name="menuPatch"/>
+   <addaction name="menuCurve"/>
+   <addaction name="menuScripts"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="styleSheet">
+    <string notr="true"> QStatusBar {
+     background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(64, 64, 64, 255), stop:1 rgba(51, 49, 49, 255))
+ }
+
+ QStatusBar::item {
+     border: 1px solid red;
+     border-radius: 3px;
+ }</string>
+   </property>
+  </widget>
+  <widget class="QDockWidget" name="dock_widget2">
+   <property name="styleSheet">
+    <string notr="true"> QDockWidget {
+     border: 1px solid rgb(255, 255, 255);
+     titlebar-close-icon: url(close.png);
+     titlebar-normal-icon: url(undock.png);
+	 color: rgb(218, 218, 218);
+ }
+
+ QDockWidget::title {
+     text-align: center; /* align the text to the center */
+	 padding: 5px;
+	 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 65, 65, 255),   			                                   stop:1 rgba(51, 49, 49, 255));
+	 border-top-color: rgb(255, 170, 255);
+	 border: 1px outset;
+	 color: rgb(218, 218, 218);
+ }
+
+ QDockWidget::close-button, QDockWidget::float-button {
+     border: 1px solid transparent;
+     background: darkgray;
+     padding: 0px;
+ }
+
+ QDockWidget::close-button:hover, QDockWidget::float-button:hover {
+     background: gray;
+ }
+
+ QDockWidget::close-button:pressed, QDockWidget::float-button:pressed {
+     padding: 1px -1px -1px 1px;
+ }</string>
+   </property>
+   <property name="windowTitle">
+    <string>Asset Browser</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QWidget" name="widget_2" native="true">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(42, 40, 40);
+
+	border: 1px inset;
+     border-top-color: transparent;
+</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>2</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tabWidget">
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"> QTabWidget::pane { /* The tab widget frame */
+     border: 0px solid #C2C7CB;
+	
+ }
+
+ QTabWidget::tab-bar {
+     left: 5px; /* move to the right by 5px */
+ }
+
+ /* Style the tab using the tab sub-control. Note that
+     it reads QTabBar _not_ QTabWidget */
+ QTabBar::tab {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+     border: 2px solid #C4C4C3;
+     border-bottom-color: #C2C7CB; /* same as the pane color */
+     border-top-left-radius: 4px;
+     border-top-right-radius: 4px;
+	 border-bottom-left-radius: 4px;
+     border-bottom-right-radius: 4px;
+     min-width: 8ex;
+     padding: 2px;
+ }
+
+ QTabBar::tab:selected, QTabBar::tab:hover {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #fafafa, stop: 0.4 #f4f4f4,
+                                 stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+ }
+
+ QTabBar::tab:selected {
+     border-color: #9B9B9B;
+     border-bottom-color: #C2C7CB; /* same as pane color */
+ }
+
+ QTabBar::tab:!selected {
+     margin-top: 2px; /* make non-selected tabs look smaller */
+ }
+
+ /* make use of negative margins for overlapping tabs */
+ QTabBar::tab:selected {
+     /* expand/overlap to the left and right by 4px */
+     margin-left: -4px;
+     margin-right: -4px;
+ }
+
+ QTabBar::tab:first:selected {
+     margin-left: 0; /* the first selected tab has nothing to overlap with on the left */
+ }
+
+ QTabBar::tab:last:selected {
+     margin-right: 0; /* the last selected tab has nothing to overlap with on the right */
+ }
+
+ QTabBar::tab:only-one {
+     margin: 0; /* if there is only one tab, we don't want overlapping margins */
+ }
+
+ QTabWidget::pane { /* The tab widget frame */
+     border: 0px solid transparent;
+     position: absolute;
+     top: -0.5em;
+ }
+
+ QTabWidget::tab-bar {
+     alignment: center;
+ }
+
+ /* Style the tab using the tab sub-control. Note that
+     it reads QTabBar _not_ QTabWidget */
+ QTabBar::tab {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+     border: 2px solid #C4C4C3;
+     border-bottom-color: #C2C7CB; /* same as the pane color */
+     border-top-left-radius: 4px;
+     border-top-right-radius: 4px;
+     min-width: 8ex;
+     padding: 2px;
+ }
+
+ QTabBar::tab:selected, QTabBar::tab:hover {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #fafafa, stop: 0.4 #f4f4f4,
+                                 stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+ }
+
+ QTabBar::tab:selected {
+     border-color: #9B9B9B;
+     border-bottom-color: #C2C7CB; /* same as pane color */
+ }</string>
+          </property>
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <widget class="QWidget" name="tab">
+           <attribute name="title">
+            <string>Materials</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>2</number>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <widget class="QListView" name="listView">
+                <property name="styleSheet">
+                 <string notr="true"> QListView {
+     alternate-background-color: yellow;
+	background-color: rgb(17, 17, 17);
+	border-color: rgb(0, 0, 0);
+ }</string>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>32</width>
+                  <height>32</height>
+                 </size>
+                </property>
+                <property name="viewMode">
+                 <enum>QListView::IconMode</enum>
+                </property>
+                <property name="uniformItemSizes">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QFormLayout" name="formLayout">
+                <property name="fieldGrowthPolicy">
+                 <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                </property>
+                <property name="leftMargin">
+                 <number>2</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>2</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>4</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label">
+                  <property name="styleSheet">
+                   <string notr="true">
+
+QLabel {
+color: rgb(218, 218, 218);
+	border-color: rgba(0, 0, 0, 0);
+
+ }</string>
+                  </property>
+                  <property name="text">
+                   <string>Set Directory:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="comboBox">
+                  <property name="styleSheet">
+                   <string notr="true">QComboBox {
+     border: rgb(0, 0, 0);
+     border-radius: 2px;
+     padding: 1px 18px 1px 3px;
+     min-width: 6px;
+	border: 1px outset
+ }
+
+ QComboBox:editable {
+	background-color: rgb(146, 155, 165);
+ }
+
+ QComboBox:!editable, QComboBox::drop-down:editable {
+	background-color: rgb(146, 155, 165);
+ }
+
+ /* QComboBox gets the &quot;on&quot; state when the popup is open */
+ QComboBox:!editable:on, QComboBox::drop-down:editable:on {
+	background-color: rgb(89, 102, 116);
+ }
+
+ QComboBox:on { /* shift the text when the popup opens */
+     padding-top: 3px;
+     padding-left: 4px;
+ }
+
+ QComboBox::drop-down {
+     subcontrol-origin: padding;
+     subcontrol-position: top right;
+     width: 15px;
+
+     border-left-width: 1px;
+     border-left-color: darkgray;
+     border-left-style: solid; /* just a single line */
+     border-top-right-radius: 3px; /* same radius as the QComboBox */
+     border-bottom-right-radius: 3px;
+	background-color: rgb(89, 102, 116);
+ }
+
+ QComboBox::down-arrow {
+     image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);
+ }
+
+ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+     top: 1px;
+     left: 1px;
+ }</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>test</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Test2</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_2">
+           <attribute name="title">
+            <string>Models</string>
+           </attribute>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dock_widget3">
+   <property name="styleSheet">
+    <string notr="true"> QDockWidget {
+     border: 1px solid rgb(255, 255, 255);
+     titlebar-close-icon: url(close.png);
+     titlebar-normal-icon: url(undock.png);
+	 color: rgb(218, 218, 218);
+ }
+
+ QDockWidget::title {
+     text-align: center; /* align the text to the center */
+	 padding: 5px;
+	 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 65, 65, 255),   			                                   stop:1 rgba(51, 49, 49, 255));
+	 border-top-color: rgb(255, 170, 255);
+	 border: 1px outset;
+	 color: rgb(218, 218, 218);
+ }
+
+ QDockWidget::close-button, QDockWidget::float-button {
+     border: 1px solid transparent;
+     background: darkgray;
+     padding: 0px;
+ }
+
+ QDockWidget::close-button:hover, QDockWidget::float-button:hover {
+     background: gray;
+ }
+
+ QDockWidget::close-button:pressed, QDockWidget::float-button:pressed {
+     padding: 1px -1px -1px 1px;
+ }</string>
+   </property>
+   <property name="windowTitle">
+    <string>Properties</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>6</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QWidget" name="widget" native="true">
+       <property name="styleSheet">
+        <string notr="true">QWidget {
+	background-color: rgb(42, 40, 40);
+	border: 1px inset;
+    border-top-color: transparent;
+ }
+
+</string>
+       </property>
+       <zorder>tabWidget</zorder>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dock_widget1">
+   <property name="minimumSize">
+    <size>
+     <width>153</width>
+     <height>304</height>
+    </size>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"> QDockWidget {
+     border: 1px solid rgb(255, 255, 255);
+     titlebar-close-icon: url(close.png);
+     titlebar-normal-icon: url(undock.png);
+	 color: rgb(218, 218, 218);
+ }
+
+ QDockWidget::title {
+     text-align: center; /* align the text to the center */
+	 padding: 5px;
+	 background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 65, 65, 255),   			                                   stop:1 rgba(51, 49, 49, 255));
+	 border-top-color: rgb(255, 170, 255);
+	 border: 1px outset;
+	 color: rgb(218, 218, 218);
+ }
+
+ QDockWidget::close-button, QDockWidget::float-button {
+     border: 1px solid transparent;
+     background: darkgray;
+     padding: 0px;
+ }
+
+ QDockWidget::close-button:hover, QDockWidget::float-button:hover {
+     background: gray;
+ }
+
+ QDockWidget::close-button:pressed, QDockWidget::float-button:pressed {
+     padding: 1px -1px -1px 1px;
+ }</string>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string extracomment="Tool Shelf">Tool Shelf</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_3" native="true">
+       <property name="styleSheet">
+        <string notr="true">QWidget {
+	background-color: rgb(42, 40, 40);
+	border: 1px inset;
+    border-top-color: transparent;
+ }
+
+</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <property name="margin">
+         <number>1</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame">
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(70, 70, 70);
+border-color: rgb(255, 0, 0);
+</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="lineWidth">
+           <number>2</number>
+          </property>
+          <property name="midLineWidth">
+           <number>1</number>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout" stretch="0">
+           <property name="margin">
+            <number>2</number>
+           </property>
+           <item>
+            <widget class="QToolBox" name="toolBox">
+             <property name="styleSheet">
+              <string notr="true"> QToolBox::tab {
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0, 			x2:0, y2:1, stop:0 rgba(102, 102, 102, 255), stop:1 rgba(92, 	92, 92, 255));
+    border-radius: 2px;
+	color: rgb(218, 218, 218);
+	border: 1px outset
+}
+
+</string>
+             </property>
+             <property name="currentIndex">
+              <number>1</number>
+             </property>
+             <widget class="QWidget" name="page_6">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>141</width>
+                <height>285</height>
+               </rect>
+              </property>
+              <attribute name="label">
+               <string>Page 1</string>
+              </attribute>
+             </widget>
+             <widget class="QWidget" name="page_7">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>141</width>
+                <height>285</height>
+               </rect>
+              </property>
+              <attribute name="label">
+               <string>Page 2</string>
+              </attribute>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionNew_Map">
+   <property name="text">
+    <string>New Map</string>
+   </property>
+  </action>
+  <action name="actionOpen_Map">
+   <property name="text">
+    <string>Open Map</string>
+   </property>
+  </action>
+  <action name="actionImport_Map">
+   <property name="text">
+    <string>Import Map</string>
+   </property>
+  </action>
+  <action name="actionImport_Prefab">
+   <property name="text">
+    <string>Import Prefab</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save as</string>
+   </property>
+  </action>
+  <action name="actionSave_Copy_As">
+   <property name="text">
+    <string>Save copy as</string>
+   </property>
+  </action>
+  <action name="actionSave_selecetion_as_Map">
+   <property name="text">
+    <string>Save selecetion as Map</string>
+   </property>
+  </action>
+  <action name="actionSave_selection_as_Prefab">
+   <property name="text">
+    <string>Save selection as Prefab</string>
+   </property>
+  </action>
+  <action name="actionExport_selection_as">
+   <property name="text">
+    <string>Export selection</string>
+   </property>
+  </action>
+  <action name="actionSave_Region">
+   <property name="text">
+    <string>Save Region</string>
+   </property>
+  </action>
+  <action name="actionReload_Models">
+   <property name="text">
+    <string>Reload Models</string>
+   </property>
+  </action>
+  <action name="actionReload_Selected_Models">
+   <property name="text">
+    <string>Reload Selected Models</string>
+   </property>
+  </action>
+  <action name="actionReload_Skins">
+   <property name="text">
+    <string>Reload Skins</string>
+   </property>
+  </action>
+  <action name="actionReload_Scripts">
+   <property name="text">
+    <string>Reload Scripts</string>
+   </property>
+  </action>
+  <action name="actionReload_GUIs">
+   <property name="text">
+    <string>Reload readable GUIs</string>
+   </property>
+  </action>
+  <action name="actionReload_Shaders">
+   <property name="text">
+    <string>Reload Shaders</string>
+   </property>
+  </action>
+  <action name="actionReload_Defs">
+   <property name="text">
+    <string>Reload Defs</string>
+   </property>
+  </action>
+  <action name="actionReload_Particles">
+   <property name="text">
+    <string>Reload Particles</string>
+   </property>
+  </action>
+  <action name="actionSelect_Game">
+   <property name="text">
+    <string>Select Game</string>
+   </property>
+  </action>
+  <action name="actionPoint_File">
+   <property name="text">
+    <string>Load Point File</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionReload_selected_Models">
+   <property name="text">
+    <string>Reload selected Models</string>
+   </property>
+  </action>
+  <action name="actionReload_all_Models">
+   <property name="text">
+    <string>Reload all Models</string>
+   </property>
+  </action>
+  <action name="actionReload_Skins_2">
+   <property name="text">
+    <string>Reload Skins</string>
+   </property>
+  </action>
+  <action name="actionReload_Scripts_2">
+   <property name="text">
+    <string>Reload Scripts</string>
+   </property>
+  </action>
+  <action name="actionReload_Readable_GUIs">
+   <property name="text">
+    <string>Reload Readable GUIs</string>
+   </property>
+  </action>
+  <action name="actionReload_Shaders_2">
+   <property name="text">
+    <string>Reload Shaders</string>
+   </property>
+  </action>
+  <action name="actionReload_Defs_2">
+   <property name="text">
+    <string>Reload Defs</string>
+   </property>
+  </action>
+  <action name="actionReload_Particles_2">
+   <property name="text">
+    <string>Reload Particles</string>
+   </property>
+  </action>
+  <action name="actionRecent">
+   <property name="text">
+    <string>Open Recent</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="actionPaste_to_Camera">
+   <property name="text">
+    <string>Paste to Camera</string>
+   </property>
+  </action>
+  <action name="actionDuplicate">
+   <property name="text">
+    <string>Duplicate</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionReparent_Primitives">
+   <property name="text">
+    <string>Reparent Primitives</string>
+   </property>
+  </action>
+  <action name="actionReparent_Primitives_to_Worldspawn">
+   <property name="text">
+    <string>Reparent Primitives to Worldspawn</string>
+   </property>
+  </action>
+  <action name="actionMerge_selected_Entities">
+   <property name="text">
+    <string>Merge selected Entities</string>
+   </property>
+  </action>
+  <action name="actionCopy_Shader">
+   <property name="text">
+    <string>Copy Shader</string>
+   </property>
+  </action>
+  <action name="actionPaste_Shader">
+   <property name="text">
+    <string>Paste Shader</string>
+   </property>
+  </action>
+  <action name="actionClear_selection">
+   <property name="text">
+    <string>Clear selection</string>
+   </property>
+  </action>
+  <action name="actionInvert_selection">
+   <property name="text">
+    <string>Invert selection</string>
+   </property>
+  </action>
+  <action name="actionSelect_complete_tall">
+   <property name="text">
+    <string>Select complete tall</string>
+   </property>
+  </action>
+  <action name="actionSelect_inside">
+   <property name="text">
+    <string>Select inside</string>
+   </property>
+  </action>
+  <action name="actionSelect_touching">
+   <property name="text">
+    <string>Select touching</string>
+   </property>
+  </action>
+  <action name="actionSelect_children">
+   <property name="text">
+    <string>Select children</string>
+   </property>
+  </action>
+  <action name="actionExpand_selection_to_all_Siblings">
+   <property name="text">
+    <string>Expand selection to all Siblings</string>
+   </property>
+  </action>
+  <action name="actionKeyboard_Shortcuts">
+   <property name="text">
+    <string>Keyboard Shortcuts</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionCopy_Shader_2">
+   <property name="text">
+    <string>Copy Shader</string>
+   </property>
+  </action>
+  <action name="actionPaste_shader">
+   <property name="text">
+    <string>Paste Shader</string>
+   </property>
+  </action>
+  <action name="actionPaste_Shader_natural">
+   <property name="text">
+    <string>Paste Shader (natural)</string>
+   </property>
+  </action>
+  <action name="actionNew_XY_view">
+   <property name="text">
+    <string>New XY view</string>
+   </property>
+  </action>
+  <action name="actionLayers">
+   <property name="text">
+    <string>Layers</string>
+   </property>
+  </action>
+  <action name="actionConsole">
+   <property name="text">
+    <string>Console</string>
+   </property>
+  </action>
+  <action name="actionAsset_Browser">
+   <property name="text">
+    <string>Asset Browser</string>
+   </property>
+  </action>
+  <action name="actionEntity_Inspector">
+   <property name="text">
+    <string>Entity Inspector</string>
+   </property>
+  </action>
+  <action name="actionLight_Inspector">
+   <property name="text">
+    <string>Light Inspector</string>
+   </property>
+  </action>
+  <action name="actionSurface_Inspector">
+   <property name="text">
+    <string>Surface Inspector</string>
+   </property>
+  </action>
+  <action name="actionPatch_Inspector">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Patch Inspector</string>
+   </property>
+  </action>
+  <action name="actionTexture_Tool">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Texture Tool</string>
+   </property>
+  </action>
+  <action name="actionScene_Browser">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Scene Browser</string>
+   </property>
+  </action>
+  <action name="actionColours">
+   <property name="text">
+    <string>Colours</string>
+   </property>
+  </action>
+  <action name="actionBackground_Image">
+   <property name="text">
+    <string>Background Image</string>
+   </property>
+  </action>
+  <action name="actionFloating">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Floating </string>
+   </property>
+  </action>
+  <action name="actionSplit_Pane_4_Up">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Split Pane (4 Up)</string>
+   </property>
+  </action>
+  <action name="actionDefault">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Default</string>
+   </property>
+  </action>
+  <action name="actionSave_Custom">
+   <property name="text">
+    <string>Save Custom</string>
+   </property>
+  </action>
+  <action name="actionLoad_Custom">
+   <property name="text">
+    <string>Load Custom</string>
+   </property>
+  </action>
+  <action name="actionMaximized">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Maximized</string>
+   </property>
+  </action>
+  <action name="actionTop_Left">
+   <property name="text">
+    <string>Top Left</string>
+   </property>
+  </action>
+  <action name="actionTop_Right">
+   <property name="text">
+    <string>Top Right</string>
+   </property>
+  </action>
+  <action name="actionBottom_Left">
+   <property name="text">
+    <string>Bottom Left</string>
+   </property>
+  </action>
+  <action name="actionBottom_Right">
+   <property name="text">
+    <string>Bottom Right</string>
+   </property>
+  </action>
+  <action name="actionCenter">
+   <property name="text">
+    <string>Center</string>
+   </property>
+  </action>
+  <action name="actionUp_Floor">
+   <property name="text">
+    <string>Up Floor</string>
+   </property>
+  </action>
+  <action name="actionDown_Floor">
+   <property name="text">
+    <string>Down Floor</string>
+   </property>
+  </action>
+  <action name="actionNext_Leak">
+   <property name="text">
+    <string>Next Leak</string>
+   </property>
+  </action>
+  <action name="actionPrevious_Leak">
+   <property name="text">
+    <string>Previous Leak</string>
+   </property>
+  </action>
+  <action name="actionNext_XY_XZ_YZ">
+   <property name="text">
+    <string>Next (XY. XZ. YZ)</string>
+   </property>
+  </action>
+  <action name="actionXY_Top">
+   <property name="text">
+    <string>XY (Top)</string>
+   </property>
+  </action>
+  <action name="actionYZ">
+   <property name="text">
+    <string>YZ</string>
+   </property>
+  </action>
+  <action name="actionXz">
+   <property name="text">
+    <string>Xz</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+  </action>
+  <action name="action100_Home">
+   <property name="text">
+    <string>100% (Home)</string>
+   </property>
+  </action>
+  <action name="action100_Local">
+   <property name="text">
+    <string>100% (Local)</string>
+   </property>
+  </action>
+  <action name="actionZoom_Selected">
+   <property name="text">
+    <string>Zoom Selected</string>
+   </property>
+  </action>
+  <action name="actionShow_Angles">
+   <property name="text">
+    <string>Show Angles</string>
+   </property>
+  </action>
+  <action name="actionShow_Names">
+   <property name="text">
+    <string>Show Names</string>
+   </property>
+  </action>
+  <action name="actionShow_Blocks">
+   <property name="text">
+    <string>Show Blocks</string>
+   </property>
+  </action>
+  <action name="actionShow_Coordinates">
+   <property name="text">
+    <string>Show Coordinates</string>
+   </property>
+  </action>
+  <action name="actionShow_Window_Outline">
+   <property name="text">
+    <string>Show Window Outline</string>
+   </property>
+  </action>
+  <action name="actionShow_Axes">
+   <property name="text">
+    <string>Show Axes</string>
+   </property>
+  </action>
+  <action name="actionShow_Workzone">
+   <property name="text">
+    <string>Show Workzone</string>
+   </property>
+  </action>
+  <action name="actionShow_Size_Info">
+   <property name="text">
+    <string>Show Size Info</string>
+   </property>
+  </action>
+  <action name="actionHide_Selected">
+   <property name="text">
+    <string>Hide Selected</string>
+   </property>
+  </action>
+  <action name="actionHide_Deselected">
+   <property name="text">
+    <string>Hide Deselected</string>
+   </property>
+  </action>
+  <action name="actionShow_Hidden">
+   <property name="text">
+    <string>Show Hidden</string>
+   </property>
+  </action>
+  <action name="actionSwitch_off">
+   <property name="text">
+    <string>Switch off</string>
+   </property>
+  </action>
+  <action name="actionSt_from_XY_view">
+   <property name="text">
+    <string>St from XY view</string>
+   </property>
+  </action>
+  <action name="actionSet_from_Brush">
+   <property name="text">
+    <string>Set from Brush</string>
+   </property>
+  </action>
+  <action name="actionSet_from_Selection">
+   <property name="text">
+    <string>Set from Selection</string>
+   </property>
+  </action>
+  <action name="actionFree_Model_Rotation">
+   <property name="text">
+    <string>Free Model Rotation</string>
+   </property>
+  </action>
+  <action name="actionRotate_and_scale">
+   <property name="text">
+    <string>Rotate and scale</string>
+   </property>
+  </action>
+  <action name="actionEdges">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Edges</string>
+   </property>
+  </action>
+  <action name="actionVertices">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Vertices</string>
+   </property>
+  </action>
+  <action name="actionFaces">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Faces</string>
+   </property>
+  </action>
+  <action name="actionEntities">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Entities</string>
+   </property>
+  </action>
+  <action name="actionNudge_Left">
+   <property name="text">
+    <string>Nudge Left</string>
+   </property>
+  </action>
+  <action name="actionNudge_Right">
+   <property name="text">
+    <string>Nudge Right</string>
+   </property>
+  </action>
+  <action name="actionNudge_Up">
+   <property name="text">
+    <string>Nudge Up</string>
+   </property>
+  </action>
+  <action name="actionNudge_Down">
+   <property name="text">
+    <string>Nudge Down</string>
+   </property>
+  </action>
+  <action name="actionRotate_X">
+   <property name="text">
+    <string>Rotate X</string>
+   </property>
+  </action>
+  <action name="actionRotate_Y">
+   <property name="text">
+    <string>Rotate Y</string>
+   </property>
+  </action>
+  <action name="actionRotate_Z">
+   <property name="text">
+    <string>Rotate Z</string>
+   </property>
+  </action>
+  <action name="actionMirror_X">
+   <property name="text">
+    <string>Mirror X</string>
+   </property>
+  </action>
+  <action name="actionMirror_Y">
+   <property name="text">
+    <string>Mirror Y</string>
+   </property>
+  </action>
+  <action name="actionMirror_Z">
+   <property name="text">
+    <string>Mirror Z</string>
+   </property>
+  </action>
+  <action name="actionSnap_selected_to_grid">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Snap selected to grid</string>
+   </property>
+  </action>
+  <action name="actionGrid_0_125">
+   <property name="text">
+    <string>Grid 0.125</string>
+   </property>
+  </action>
+  <action name="actionGrid_0_25">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 0.25</string>
+   </property>
+  </action>
+  <action name="actionGrid_0_5">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 0.5</string>
+   </property>
+  </action>
+  <action name="actionGrid_1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 1</string>
+   </property>
+  </action>
+  <action name="actionGrid_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 2</string>
+   </property>
+  </action>
+  <action name="actionGrid_4">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 4</string>
+   </property>
+  </action>
+  <action name="actionGrid_8">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 8</string>
+   </property>
+  </action>
+  <action name="actionGrid_9">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 8</string>
+   </property>
+  </action>
+  <action name="actionGrid_16">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 16</string>
+   </property>
+  </action>
+  <action name="actionGrid_32">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 32</string>
+   </property>
+  </action>
+  <action name="actionGrid_64">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 64</string>
+   </property>
+  </action>
+  <action name="actionGrid_128">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 128</string>
+   </property>
+  </action>
+  <action name="actionGrid_256">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Grid 256</string>
+   </property>
+  </action>
+  <action name="actionAll_Entities">
+   <property name="text">
+    <string>All Entities</string>
+   </property>
+  </action>
+  <action name="actionBrushes">
+   <property name="text">
+    <string>Brushes</string>
+   </property>
+  </action>
+  <action name="actionCaulk">
+   <property name="text">
+    <string>Caulk</string>
+   </property>
+  </action>
+  <action name="actionClip_Textures">
+   <property name="text">
+    <string>Clip Textures</string>
+   </property>
+  </action>
+  <action name="actionCollision_Surfaces">
+   <property name="text">
+    <string>Collision Surfaces</string>
+   </property>
+  </action>
+  <action name="actionDecals">
+   <property name="text">
+    <string>Decals</string>
+   </property>
+  </action>
+  <action name="actionLights">
+   <property name="text">
+    <string>Lights</string>
+   </property>
+  </action>
+  <action name="actionNodraw_Textures">
+   <property name="text">
+    <string>Nodraw Textures</string>
+   </property>
+  </action>
+  <action name="actionPatches">
+   <property name="text">
+    <string>Patches</string>
+   </property>
+  </action>
+  <action name="actionPaths">
+   <property name="text">
+    <string>Paths</string>
+   </property>
+  </action>
+  <action name="actionShadow_Textures">
+   <property name="text">
+    <string>Shadow Textures</string>
+   </property>
+  </action>
+  <action name="actionTrigger_Textures">
+   <property name="text">
+    <string>Trigger Textures</string>
+   </property>
+  </action>
+  <action name="actionVisportals">
+   <property name="text">
+    <string>Visportals</string>
+   </property>
+  </action>
+  <action name="actionWeather_Textures">
+   <property name="text">
+    <string>Weather Textures</string>
+   </property>
+  </action>
+  <action name="actionWorld_Geometry">
+   <property name="text">
+    <string>World Geometry</string>
+   </property>
+  </action>
+  <action name="actionActivate_all_Filters">
+   <property name="text">
+    <string>Activate all Filters</string>
+   </property>
+  </action>
+  <action name="actionDeactivate_all_filters">
+   <property name="text">
+    <string>Deactivate all filters</string>
+   </property>
+  </action>
+  <action name="actionEdit_Filters">
+   <property name="text">
+    <string>Edit Filters</string>
+   </property>
+  </action>
+  <action name="actionBuild_All">
+   <property name="text">
+    <string>Build All</string>
+   </property>
+  </action>
+  <action name="actionFind_Brush">
+   <property name="text">
+    <string>Find Brush</string>
+   </property>
+  </action>
+  <action name="actionMap_Info">
+   <property name="text">
+    <string>Map Info</string>
+   </property>
+  </action>
+  <action name="actionConversations">
+   <property name="text">
+    <string>Conversations</string>
+   </property>
+  </action>
+  <action name="actionFixup_Map">
+   <property name="text">
+    <string>Fixup Map</string>
+   </property>
+  </action>
+  <action name="actionDifficulty">
+   <property name="text">
+    <string>Difficulty</string>
+   </property>
+  </action>
+  <action name="actionObjectives">
+   <property name="text">
+    <string>Objectives</string>
+   </property>
+  </action>
+  <action name="actionRevert_group_to_worldspawn">
+   <property name="text">
+    <string>Revert group to worldspawn</string>
+   </property>
+  </action>
+  <action name="actionConnect_selected_entities">
+   <property name="text">
+    <string>Connect selected entities</string>
+   </property>
+  </action>
+  <action name="actionBind_selected_entities">
+   <property name="text">
+    <string>Bind selected entities</string>
+   </property>
+  </action>
+  <action name="actionEntity_Class_Tree">
+   <property name="text">
+    <string>Entity Class Tree</string>
+   </property>
+  </action>
+  <action name="actionPrism">
+   <property name="text">
+    <string>Prism</string>
+   </property>
+  </action>
+  <action name="actionCone">
+   <property name="text">
+    <string>Cone</string>
+   </property>
+  </action>
+  <action name="actionSphere">
+   <property name="text">
+    <string>Sphere</string>
+   </property>
+  </action>
+  <action name="actionTexture_Lock">
+   <property name="text">
+    <string>Texture Lock</string>
+   </property>
+  </action>
+  <action name="actionCreate_Decal_Patches">
+   <property name="text">
+    <string>Create Decal Patches</string>
+   </property>
+  </action>
+  <action name="actionMake_Visportal">
+   <property name="text">
+    <string>Make Visportal</string>
+   </property>
+  </action>
+  <action name="actionMake_Hollow">
+   <property name="text">
+    <string>Make Hollow</string>
+   </property>
+  </action>
+  <action name="actionMake_Room">
+   <property name="text">
+    <string>Make Room</string>
+   </property>
+  </action>
+  <action name="actionCSG_Subtract">
+   <property name="text">
+    <string>CSG Subtract</string>
+   </property>
+  </action>
+  <action name="actionCSG_Merge">
+   <property name="text">
+    <string>CSG Merge</string>
+   </property>
+  </action>
+  <action name="actionCSG_Add">
+   <property name="text">
+    <string>CSG Add</string>
+   </property>
+  </action>
+  <action name="actionClip_Selection">
+   <property name="text">
+    <string>Clip Selection</string>
+   </property>
+  </action>
+  <action name="actionSplit_Selection">
+   <property name="text">
+    <string>Split Selection</string>
+   </property>
+  </action>
+  <action name="actionFlip_Clip_Orientation">
+   <property name="text">
+    <string>Flip Clip Orientation</string>
+   </property>
+  </action>
+  <action name="actionTrigger_Volume">
+   <property name="text">
+    <string>Trigger Volume</string>
+   </property>
+  </action>
+  <action name="actionWater_Volume">
+   <property name="text">
+    <string>Water Volume</string>
+   </property>
+  </action>
+  <action name="actionForce_Volume">
+   <property name="text">
+    <string>Force Volume</string>
+   </property>
+  </action>
+  <action name="actionPain_Volume">
+   <property name="text">
+    <string>Pain Volume</string>
+   </property>
+  </action>
+  <action name="actionBlock_All_Volume">
+   <property name="text">
+    <string>Block/All Volume</string>
+   </property>
+  </action>
+  <action name="actionBlock_AI_Volme">
+   <property name="text">
+    <string>Block/AI Volume</string>
+   </property>
+  </action>
+  <action name="actionBlock_Projeciles_Volume">
+   <property name="text">
+    <string>Block/Projectiles Volume</string>
+   </property>
+  </action>
+  <action name="actionCinematic_Volume">
+   <property name="text">
+    <string>Cinematic Volume</string>
+   </property>
+  </action>
+  <action name="actionSFX_Volume">
+   <property name="text">
+    <string>SFX Volume</string>
+   </property>
+  </action>
+  <action name="actionPost_Process_Volume">
+   <property name="text">
+    <string>Post Process Volume</string>
+   </property>
+  </action>
+  <action name="actionPhysics_Volume">
+   <property name="text">
+    <string>Physics Volume</string>
+   </property>
+  </action>
+  <action name="actionCreate_simple_patch_mesh">
+   <property name="text">
+    <string>Create simple patch mesh</string>
+   </property>
+  </action>
+  <action name="actionCreate_End_cap">
+   <property name="text">
+    <string>Create End cap</string>
+   </property>
+  </action>
+  <action name="actionCreate_Bevel">
+   <property name="text">
+    <string>Create Bevel</string>
+   </property>
+  </action>
+  <action name="actionCreate_Cone">
+   <property name="text">
+    <string>Create Cone</string>
+   </property>
+  </action>
+  <action name="actionCreate_Cylinder">
+   <property name="text">
+    <string>Create Cylinder</string>
+   </property>
+  </action>
+  <action name="actionCreate_Sphere">
+   <property name="text">
+    <string>Create Sphere</string>
+   </property>
+  </action>
+  <action name="actionMore_Cylinders">
+   <property name="text">
+    <string>More Cylinders</string>
+   </property>
+  </action>
+  <action name="actionThicken_Selected_Patches">
+   <property name="text">
+    <string>Thicken Selected Patches</string>
+   </property>
+  </action>
+  <action name="actionCap_Selection">
+   <property name="text">
+    <string>Cap Selection</string>
+   </property>
+  </action>
+  <action name="actionCycle_Cap_Texture">
+   <property name="text">
+    <string>Cycle Cap Texture</string>
+   </property>
+  </action>
+  <action name="actionStitch_Patch_Texture">
+   <property name="text">
+    <string>Stitch Patch Texture</string>
+   </property>
+  </action>
+  <action name="actionBulge_Patch">
+   <property name="text">
+    <string>Bulge Patch</string>
+   </property>
+  </action>
+  <action name="actionCreate_Dense_Cylinder">
+   <property name="text">
+    <string>Create Dense Cylinder</string>
+   </property>
+  </action>
+  <action name="actionCreate_Very_Dense_Cylinder">
+   <property name="text">
+    <string>Create Very Dense Cylinder</string>
+   </property>
+  </action>
+  <action name="actionCreate_Square_Cylinder">
+   <property name="text">
+    <string>Create Square Cylinder</string>
+   </property>
+  </action>
+  <action name="actionInser_2_Columns_at_the_beginning">
+   <property name="text">
+    <string>Inser 2 Columns at the beginning</string>
+   </property>
+  </action>
+  <action name="actionInsert_2_Columns_at_the_end">
+   <property name="text">
+    <string>Insert 2 Columns at the end</string>
+   </property>
+  </action>
+  <action name="actionInsert_2_Rows_at_the_beginning">
+   <property name="text">
+    <string>Insert 2 Rows at the beginning</string>
+   </property>
+  </action>
+  <action name="actionInsert_2_Rows_at_the_end">
+   <property name="text">
+    <string>Insert 2 Rows at the end</string>
+   </property>
+  </action>
+  <action name="actionDelete_2_Columns_from_the_beginning">
+   <property name="text">
+    <string>Delete 2 Columns from the beginning</string>
+   </property>
+  </action>
+  <action name="actionDelete_2_Columns_from_the_end">
+   <property name="text">
+    <string>Delete 2 Columns from the end</string>
+   </property>
+  </action>
+  <action name="actionDelete_2_Rows_from_the_beginning">
+   <property name="text">
+    <string>Delete 2 Rows from the beginning</string>
+   </property>
+  </action>
+  <action name="actionDelete_2_Rows_from_the_end">
+   <property name="text">
+    <string>Delete 2 Rows from the end</string>
+   </property>
+  </action>
+  <action name="actionInvert">
+   <property name="text">
+    <string>Invert</string>
+   </property>
+  </action>
+  <action name="actionRe_disperse">
+   <property name="text">
+    <string>Re-disperse</string>
+   </property>
+  </action>
+  <action name="actionTranspose">
+   <property name="text">
+    <string>Transpose</string>
+   </property>
+  </action>
+  <action name="actionCreat_NURBS_Curve">
+   <property name="text">
+    <string>Creat NURBS Curve</string>
+   </property>
+  </action>
+  <action name="actionCreate_CatmullRom_Curve">
+   <property name="text">
+    <string>Create CatmullRom Curve</string>
+   </property>
+  </action>
+  <action name="actionConvert_NURBS_to_CatmullRom">
+   <property name="text">
+    <string>Convert NURBS to CatmullRom</string>
+   </property>
+  </action>
+  <action name="actionApend_Curve_Control_Point">
+   <property name="text">
+    <string>Apend Curve Control Point</string>
+   </property>
+  </action>
+  <action name="actionInsert_Curve_Control_Points">
+   <property name="text">
+    <string>Insert Curve Control Points</string>
+   </property>
+  </action>
+  <action name="actionRemove_Curve_Controle_Points">
+   <property name="text">
+    <string>Remove Curve Controle Points</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

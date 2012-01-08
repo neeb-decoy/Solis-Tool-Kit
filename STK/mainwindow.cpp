@@ -1,6 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "qdockwidget.h"
+#include <QtGui/QApplication>
+#include <QtGui/QMainWindow>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QPushButton>
+#include <QtCore/QFile>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 {
     ui->setupUi(this);
+//    this->setStyleSheet("background-color: 000005;");
+
 
 }
 
@@ -18,11 +25,6 @@ MainWindow::~MainWindow()
 
 }
 
-//set left hand docks to tabbed state
-//void QMainWindow::tabifyDockWidget ( QDockWidget * first, QDockWidget * second )
-//{
-
-//}
 
 void MainWindow::on_actionExit_triggered()
 {
